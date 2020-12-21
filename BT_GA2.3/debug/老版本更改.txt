@@ -1,0 +1,1 @@
+#define  UDSNETLAY_MAXSIZE  76//252

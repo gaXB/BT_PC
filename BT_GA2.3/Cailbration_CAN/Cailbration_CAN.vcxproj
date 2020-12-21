@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>BT_GA</ProjectName>
+    <ProjectGuid>{D0938E87-F2EB-492E-942F-F2BBA0B61EAA}</ProjectGuid>
+    <RootNamespace>Cailbration_CAN</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</EmbedManifest>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0804</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <StackReserveSize>32000000</StackReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0804</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <StackReserveSize>52428800</StackReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ADO.cpp" />
+    <ClCompile Include="Cailbration_Boot.cpp" />
+    <ClCompile Include="CANSetDialog.cpp" />
+    <ClCompile Include="CheckDialog.cpp" />
+    <ClCompile Include="DatatoGrid.cpp" />
+    <ClCompile Include="DialogConfirm1.cpp" />
+    <ClCompile Include="DomodalDlg.cpp" />
+    <ClCompile Include="EepromSetForProject.cpp" />
+    <ClCompile Include="LogFile.cpp" />
+    <ClCompile Include="ProjiectRam.cpp" />
+    <ClCompile Include="SendDialog.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StdioFileEx.cpp" />
+    <ClCompile Include="TestListBox.cpp" />
+    <ClCompile Include="GridCtrl_src\TitleTip.cpp" />
+    <ClCompile Include="Cailbration_CAN.cpp" />
+    <ClCompile Include="Cailbration_CANDlg.cpp" />
+    <ClCompile Include="EepromDialog1.cpp" />
+    <ClCompile Include="TestDlg_APP.cpp" />
+    <ClCompile Include="GridCtrl_src\GridCell.cpp" />
+    <ClCompile Include="GridCtrl_src\GridCellBase.cpp" />
+    <ClCompile Include="GridCtrl_src\GridCtrl.cpp" />
+    <ClCompile Include="GridCtrl_src\GridDropTarget.cpp" />
+    <ClCompile Include="GridCtrl_src\InPlaceEdit.cpp" />
+    <ClCompile Include="BootDialog.cpp" />
+    <ClCompile Include="DragEdit.cpp" />
+    <ClCompile Include="edithexinput.cpp" />
+    <ClCompile Include="S19Read.cpp" />
+    <ClCompile Include="GWMMN\Applay.cpp" />
+    <ClCompile Include="GWMMN\DealString.cpp" />
+    <ClCompile Include="GWMMN\NetLaye.cpp" />
+    <ClCompile Include="GWMMN\timerout.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ADD1.h" />
+    <ClInclude Include="ADO.h" />
+    <ClInclude Include="DragEdit.h" />
+    <ClInclude Include="EditHexInput.h" />
+    <ClInclude Include="BootDialog.h" />
+    <ClInclude Include="Cailbration_CAN.h" />
+    <ClInclude Include="Cailbration_CANDlg.h" />
+    <ClInclude Include="CANSetDialog.h" />
+    <ClInclude Include="GridCtrl_src\CellRange.h" />
+    <ClInclude Include="CheckDialog.h" />
+    <ClInclude Include="ControlCAN.H" />
+    <ClInclude Include="DatatoGrid.h" />
+    <ClInclude Include="DialogConfirm1.h" />
+    <ClInclude Include="DomodalDlg.h" />
+    <ClInclude Include="EepromDialog1.h" />
+    <ClInclude Include="GridCtrl_src\GridCell.h" />
+    <ClInclude Include="GridCtrl_src\GridCellBase.h" />
+    <ClInclude Include="GridCtrl_src\GridCtrl.h" />
+    <ClInclude Include="GridCtrl_src\GridDropTarget.h" />
+    <ClInclude Include="GridCtrl_src\InPlaceEdit.h" />
+    <ClInclude Include="GridCtrl_src\MemDC.h" />
+    <ClInclude Include="LogFile.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SendDialog.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StdioFileEx.h" />
+    <ClInclude Include="SystemConfig.h" />
+    <ClInclude Include="TestListBox.h" />
+    <ClInclude Include="GridCtrl_src\TitleTip.h" />
+    <ClInclude Include="GWMMN\ApplayLay.h" />
+    <ClInclude Include="GWMMN\DataType.h" />
+    <ClInclude Include="GWMMN\InterLay.h" />
+    <ClInclude Include="GWMMN\NetLaye.h" />
+    <ClInclude Include="GWMMN\timerout.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Administrator\Desktop\ICQ.ico" />
+    <None Include="res\4ffdef0f1014bab1aa6457f9.bmp" />
+    <None Include="res\ARROW.ICO" />
+    <None Include="res\Cailbration_CAN.ico" />
+    <None Include="res\Cailbration_CAN.rc2" />
+    <None Include="res\explorer16.ICO" />
+    <None Include="res\icon1.ico" />
+    <None Include="res\ICQ.ico" />
+    <None Include="res\Left6_32x32x256.ico" />
+    <None Include="res\Pnp.ico" />
+    <None Include="res\Pokemon_003.ico" />
+    <None Include="res\Pokemon_006.ico" />
+    <None Include="res\RAM Drive.ico" />
+    <None Include="res\READ ME 15.ICO" />
+    <None Include="res\Right6_32x32x256.ico" />
+    <None Include="res\Shut Down.ico" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Cailbration_CAN.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="Cailbration_CAN.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

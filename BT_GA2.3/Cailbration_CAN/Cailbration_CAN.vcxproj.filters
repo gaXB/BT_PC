@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="源文件\NewFilter1">
+      <UniqueIdentifier>{b6865190-bb22-42cd-a4ab-2f9095e9b72d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\GridCtrl">
+      <UniqueIdentifier>{54135bed-fc05-4f8b-bcf7-fda42471715e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\bootload">
+      <UniqueIdentifier>{62907602-c9ca-4ce8-9e7e-7184fee64081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="can">
+      <UniqueIdentifier>{db2eccd9-2270-4a56-b064-5fb08dadc75c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CANSetDialog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckDialog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DatatoGrid.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogConfirm1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DomodalDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EepromSetForProject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjiectRam.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StdioFileEx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TestListBox.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\TitleTip.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Cailbration_CAN.cpp">
+      <Filter>源文件\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="Cailbration_CANDlg.cpp">
+      <Filter>源文件\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="EepromDialog1.cpp">
+      <Filter>源文件\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDlg_APP.cpp">
+      <Filter>源文件\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\GridCell.cpp">
+      <Filter>源文件\GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\GridCellBase.cpp">
+      <Filter>源文件\GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\GridCtrl.cpp">
+      <Filter>源文件\GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\GridDropTarget.cpp">
+      <Filter>源文件\GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\InPlaceEdit.cpp">
+      <Filter>源文件\GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="BootDialog.cpp">
+      <Filter>源文件\bootload</Filter>
+    </ClCompile>
+    <ClCompile Include="DragEdit.cpp">
+      <Filter>源文件\bootload</Filter>
+    </ClCompile>
+    <ClCompile Include="edithexinput.cpp">
+      <Filter>源文件\bootload</Filter>
+    </ClCompile>
+    <ClCompile Include="S19Read.cpp">
+      <Filter>源文件\bootload</Filter>
+    </ClCompile>
+    <ClCompile Include="GWMMN\Applay.cpp">
+      <Filter>can</Filter>
+    </ClCompile>
+    <ClCompile Include="GWMMN\DealString.cpp">
+      <Filter>can</Filter>
+    </ClCompile>
+    <ClCompile Include="GWMMN\NetLaye.cpp">
+      <Filter>can</Filter>
+    </ClCompile>
+    <ClCompile Include="GWMMN\timerout.cpp">
+      <Filter>can</Filter>
+    </ClCompile>
+    <ClCompile Include="SendDialog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ADO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Cailbration_Boot.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LogFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DragEdit.h">
+      <Filter>源文件\bootload</Filter>
+    </ClInclude>
+    <ClInclude Include="EditHexInput.h">
+      <Filter>源文件\bootload</Filter>
+    </ClInclude>
+    <ClInclude Include="BootDialog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Cailbration_CAN.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Cailbration_CANDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CANSetDialog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\CellRange.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckDialog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlCAN.H">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DatatoGrid.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogConfirm1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DomodalDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EepromDialog1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\GridCell.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\GridCellBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\GridCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\GridDropTarget.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\InPlaceEdit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\MemDC.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StdioFileEx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemConfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestListBox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\TitleTip.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GWMMN\ApplayLay.h">
+      <Filter>can</Filter>
+    </ClInclude>
+    <ClInclude Include="GWMMN\DataType.h">
+      <Filter>can</Filter>
+    </ClInclude>
+    <ClInclude Include="GWMMN\InterLay.h">
+      <Filter>can</Filter>
+    </ClInclude>
+    <ClInclude Include="GWMMN\NetLaye.h">
+      <Filter>can</Filter>
+    </ClInclude>
+    <ClInclude Include="GWMMN\timerout.h">
+      <Filter>can</Filter>
+    </ClInclude>
+    <ClInclude Include="SendDialog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ADD1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ADO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LogFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\4ffdef0f1014bab1aa6457f9.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ARROW.ICO">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Cailbration_CAN.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Cailbration_CAN.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\explorer16.ICO">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Left6_32x32x256.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Pnp.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Pokemon_003.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Pokemon_006.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\RAM Drive.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\READ ME 15.ICO">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Right6_32x32x256.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\Shut Down.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+    <None Include="res\icon1.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="C:\Users\Administrator\Desktop\ICQ.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\ICQ.ico">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Cailbration_CAN.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

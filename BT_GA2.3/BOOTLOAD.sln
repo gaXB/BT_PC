@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KEAPC_2", "Cailbration_CAN\Cailbration_CAN.vcxproj", "{D0938E87-F2EB-492E-942F-F2BBA0B61EAA}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup-SV51", "Setup4\Setup4.vdproj", "{1FEF510B-0B2A-4C97-B5C5-B9FE154325EE}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{C9D067FF-6400-470A-B6DF-55F1E142401E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0938E87-F2EB-492E-942F-F2BBA0B61EAA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D0938E87-F2EB-492E-942F-F2BBA0B61EAA}.Debug|Win32.Build.0 = Debug|Win32
+		{D0938E87-F2EB-492E-942F-F2BBA0B61EAA}.Debug|x64.ActiveCfg = Debug|Win32
+		{D0938E87-F2EB-492E-942F-F2BBA0B61EAA}.Release|Win32.ActiveCfg = Release|Win32
+		{D0938E87-F2EB-492E-942F-F2BBA0B61EAA}.Release|Win32.Build.0 = Release|Win32
+		{D0938E87-F2EB-492E-942F-F2BBA0B61EAA}.Release|x64.ActiveCfg = Release|Win32
+		{1FEF510B-0B2A-4C97-B5C5-B9FE154325EE}.Debug|Win32.ActiveCfg = Debug
+		{1FEF510B-0B2A-4C97-B5C5-B9FE154325EE}.Debug|x64.ActiveCfg = Debug
+		{1FEF510B-0B2A-4C97-B5C5-B9FE154325EE}.Release|Win32.ActiveCfg = Release
+		{1FEF510B-0B2A-4C97-B5C5-B9FE154325EE}.Release|x64.ActiveCfg = Release
+		{C9D067FF-6400-470A-B6DF-55F1E142401E}.Debug|Win32.ActiveCfg = Debug
+		{C9D067FF-6400-470A-B6DF-55F1E142401E}.Debug|x64.ActiveCfg = Debug
+		{C9D067FF-6400-470A-B6DF-55F1E142401E}.Release|Win32.ActiveCfg = Release
+		{C9D067FF-6400-470A-B6DF-55F1E142401E}.Release|x64.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
