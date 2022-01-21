@@ -278,6 +278,15 @@
     <None Include="res\ICQ.ico">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="res\icon3.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="C:\Users\Administrator\Desktop\1627960183(1).jpg">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="C:\Users\Administrator\Desktop\1627960183(1).bmp">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Cailbration_CAN.rc">

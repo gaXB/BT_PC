@@ -192,6 +192,8 @@
     <ClInclude Include="GWMMN\timerout.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="C:\Users\Administrator\Desktop\1627960183(1).bmp" />
+    <None Include="C:\Users\Administrator\Desktop\1627960183(1).jpg" />
     <None Include="C:\Users\Administrator\Desktop\ICQ.ico" />
     <None Include="res\4ffdef0f1014bab1aa6457f9.bmp" />
     <None Include="res\ARROW.ICO" />
@@ -199,6 +201,7 @@
     <None Include="res\Cailbration_CAN.rc2" />
     <None Include="res\explorer16.ICO" />
     <None Include="res\icon1.ico" />
+    <None Include="res\icon3.ico" />
     <None Include="res\ICQ.ico" />
     <None Include="res\Left6_32x32x256.ico" />
     <None Include="res\Pnp.ico" />

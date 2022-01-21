@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (087bb7ef).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (879be6e9).
 //
-// e:\designerx\软件规范\说明文件\bt上位机\2.3\bt_pc_sw2.3_20200731\源程序\bt_ga2.3\cailbration_can\debug\msado15.tli
+// f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\debug\msado15.tli
 //
 // Wrapper implementations for type library C:\Program Files\Common Files\System\ado\msado15.dll
-// compiler-generated file created 10/09/20 at 19:01:55 - DO NOT EDIT!
+// compiler-generated file created 08/03/21 at 11:12:55 - DO NOT EDIT!
 
 #pragma once
 
