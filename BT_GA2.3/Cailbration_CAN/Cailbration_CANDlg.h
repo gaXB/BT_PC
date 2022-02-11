@@ -172,6 +172,7 @@ public:
 	void  OnToolbar4(void);
 	void  SendCanMessage(VCI_CAN_OBJ* vco);
 	static UINT ReceiveThread(void *param);
+	static UINT SendThread(void *param);
     void  Deal_TransSever(void);
 	void  SetTransSize(int size);
 	int i16TransSize;
