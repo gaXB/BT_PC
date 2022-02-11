@@ -22,6 +22,11 @@ ver02
 2015.8.20
 ver03
 1 加入关闭CAN的函数 Dis/EnableCanRxInterrupt
+
+2022.2.11
+ver04
+1 缓存机制bug修改
+
 **********************************************************************/
 #include "stdafx.h"
 #include "NetLaye.h"
@@ -641,7 +646,7 @@ void  NetLay_ReciveDiag(uint8 nId,uint8* L_data)
 void  Deal_UDSNetLay(void)
 {
    N_PDU   nPdu;
-   uint8   deal_en=0,deal_num;
+   uint8   deal_en=0,deal_num, i;
    
   // DisableCanRxInterrupt();
  //  DisableInterrupts;
@@ -651,11 +656,16 @@ void  Deal_UDSNetLay(void)
       nPdu=nPdu_Buffer[0]; 
       deal_en=1;
       deal_num=nPduDealNumber;
-      while(deal_num) 
+      //2016/7/4 处理bug， 
+      for (i = 0; i < deal_num; i++)
+      {
+      	nPdu_Buffer[i]=nPdu_Buffer[i+1];
+      }
+      /*while(deal_num) 
       {
          nPdu_Buffer[deal_num-1]=nPdu_Buffer[deal_num];
          deal_num--;
-      }
+      }*/
    }
    
 //   EnableInterrupts ;

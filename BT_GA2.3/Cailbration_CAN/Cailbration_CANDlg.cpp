@@ -111,7 +111,7 @@ static void CALLBACK TimerCallBack(UINT uTimerID, UINT uMsg, DWORD dwUser, DWORD
 	uint8 data[8];
 	abc++;
 	MsCounterUpadat();
-	Deal_UDSNetLay();
+//	Deal_UDSNetLay();
 	AppLay_DiagControl();
 	if (abc ==10)
 	{	
@@ -792,6 +792,7 @@ void CCailbration_CANDlg::OnToolbar1(void)
 	{
 		ShowInfo(L"启动成功",0);	
 		AfxBeginThread(ReceiveThread,this);
+		AfxBeginThread(SendThread,this);
 		TIMEID = timeSetEvent(1,1,&TimerCallBack,(DWORD)this,1);
 	    SessionMode = SESSION_MODE_EXTERN;    //会话模式
         SecurityState = SECURITY_STATE_SSEED1;   //安全访问模式
@@ -875,6 +876,13 @@ void CCailbration_CANDlg::OnToolbar4(void)
 
 }
 
+UINT CCailbration_CANDlg::SendThread(void *param)
+{
+	while(1)
+	{
+		Deal_UDSNetLay();
+	}
+}
 //接受函数在此实现
 UINT CCailbration_CANDlg::ReceiveThread(void *param)
 {
@@ -929,6 +937,7 @@ UINT CCailbration_CANDlg::ReceiveThread(void *param)
 					tmpstr="扩展帧 ";
 				str+=tmpstr;
  				box->InsertString(box->GetCount(),str);*/
+#if 1
 				if(frameinfo[i].RemoteFlag==0 && (frameinfo[i].ID == ID_DIAG_PHYSIC|| frameinfo[i].ID == ID_DIAG_FUNCT|| frameinfo[i].ID == ID_DIAG_CLM))
 				{
 					if (dlg->Eeprom_Window_Flg == WINDOUS_FLG_BOOT)
@@ -970,6 +979,7 @@ UINT CCailbration_CANDlg::ReceiveThread(void *param)
 					}
 					//ShowTime();
 				}
+#endif
 				if (frameinfo[i].DataLen == 8 && frameinfo[i].RemoteFlag ==0)
 				{
 					if (frameinfo[i].ID == ID_DIAG_CLM)

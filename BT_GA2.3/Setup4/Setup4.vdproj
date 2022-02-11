@@ -15,6 +15,30 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0025226223DE4A36A8FF4985B758A2F1"
+        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_21D81503E58F4ABABD81D40E6652665D"
+        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_399250A4730D258DA1EE59CB3460504A"
+        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_4D825C57C94045C6AF648D670CF9CFA9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -39,32 +63,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B089764FDDFE4F789986F1B6C8CABE9F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BE9626DE8DD97D344CD002225D1E7A4F"
-        "OwnerKey" = "8:_B089764FDDFE4F789986F1B6C8CABE9F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C61AEF1BADF84ABCA30E5B900F433615"
-        "OwnerKey" = "8:_B089764FDDFE4F789986F1B6C8CABE9F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CBB27A66AFF64006879E5977E17F85D4"
-        "OwnerKey" = "8:_B089764FDDFE4F789986F1B6C8CABE9F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B089764FDDFE4F789986F1B6C8CABE9F"
+        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -152,6 +152,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_399250A4730D258DA1EE59CB3460504A"
+            {
+            "SourcePath" = "8:ControlCAN.dll"
+            "TargetName" = "8:ControlCAN.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_63EC005FF95544BFACC98C01CFF83F36"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4D825C57C94045C6AF648D670CF9CFA9"
             {
             "SourcePath" = "8:..\\debug\\id.mdb"
@@ -232,26 +252,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BE9626DE8DD97D344CD002225D1E7A4F"
-            {
-            "SourcePath" = "8:ControlCAN.dll"
-            "TargetName" = "8:ControlCAN.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_63EC005FF95544BFACC98C01CFF83F36"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -330,15 +330,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BT工具"
-        "ProductCode" = "8:{946F843F-E7B3-4F6E-8310-012F53E3628B}"
-        "PackageCode" = "8:{7713B688-E01F-45CE-9747-02E12E8A54B3}"
+        "ProductCode" = "8:{7F221A75-C418-4F96-8285-211E91242B5B}"
+        "PackageCode" = "8:{0D906DF4-8254-4D06-951F-DF013252BF6A}"
         "UpgradeCode" = "8:{AD7EA063-4EA0-4304-9F30-640AD0E950F1}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.3"
+        "ProductVersion" = "8:2.3.2"
         "Manufacturer" = "8:GA"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -451,15 +451,15 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EF88D26C33E14CECA67407893FE88744"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_89E76C822CF94F27889504FD0613B14D"
             {
-            "Name" = "8:BT_GA2.3"
+            "Name" = "8:BT_GA2.3.2"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_B089764FDDFE4F789986F1B6C8CABE9F"
+            "Target" = "8:_00D14BFEA336456DA84F24002B44E08F"
             "Folder" = "8:_59AC1ADED4E941E8AD42192CFAF4C266"
             "WorkingFolder" = "8:_63EC005FF95544BFACC98C01CFF83F36"
             "Icon" = "8:_6EE885341DE0481F8E8340594C67214E"
@@ -861,21 +861,7 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_C61AEF1BADF84ABCA30E5B900F433615"
-            {
-            "UseDynamicProperties" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:Microsoft_VC100_DebugMFC_x86.msm"
-                "Properties"
-                {
-                }
-            "LanguageId" = "3:0"
-            "Exclude" = "11:FALSE"
-            "Folder" = "8:"
-            "Feature" = "8:"
-            "IsolateTo" = "8:"
-            }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_CBB27A66AFF64006879E5977E17F85D4"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_0025226223DE4A36A8FF4985B758A2F1"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
@@ -889,10 +875,24 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_21D81503E58F4ABABD81D40E6652665D"
+            {
+            "UseDynamicProperties" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "SourcePath" = "8:Microsoft_VC100_DebugMFC_x86.msm"
+                "Properties"
+                {
+                }
+            "LanguageId" = "3:0"
+            "Exclude" = "11:FALSE"
+            "Folder" = "8:"
+            "Feature" = "8:"
+            "IsolateTo" = "8:"
+            }
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B089764FDDFE4F789986F1B6C8CABE9F"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_00D14BFEA336456DA84F24002B44E08F"
             {
             "SourcePath" = "8:..\\Debug\\BT_GA.exe"
             "TargetName" = "8:"
