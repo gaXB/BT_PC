@@ -15,25 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0025226223DE4A36A8FF4985B758A2F1"
-        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_21D81503E58F4ABABD81D40E6652665D"
-        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_399250A4730D258DA1EE59CB3460504A"
+        "MsmKey" = "8:_2EBE7C3A1F3F4DF285F4159AB4A1D325"
         "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -41,6 +29,12 @@
         {
         "MsmKey" = "8:_4D825C57C94045C6AF648D670CF9CFA9"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6C4A97481921484CA26159D06BF49BA4"
+        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -152,26 +146,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_399250A4730D258DA1EE59CB3460504A"
-            {
-            "SourcePath" = "8:ControlCAN.dll"
-            "TargetName" = "8:ControlCAN.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_63EC005FF95544BFACC98C01CFF83F36"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4D825C57C94045C6AF648D670CF9CFA9"
             {
             "SourcePath" = "8:..\\debug\\id.mdb"
@@ -453,7 +427,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_89E76C822CF94F27889504FD0613B14D"
             {
-            "Name" = "8:BT_GA2.3.2"
+            "Name" = "8:BT_GA2.4"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -861,11 +835,11 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_0025226223DE4A36A8FF4985B758A2F1"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_2EBE7C3A1F3F4DF285F4159AB4A1D325"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:Microsoft_VC100_DebugCRT_x86.msm"
+            "SourcePath" = "8:Microsoft_VC100_DebugMFC_x86.msm"
                 "Properties"
                 {
                 }
@@ -875,11 +849,11 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_21D81503E58F4ABABD81D40E6652665D"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_6C4A97481921484CA26159D06BF49BA4"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:Microsoft_VC100_DebugMFC_x86.msm"
+            "SourcePath" = "8:Microsoft_VC100_DebugCRT_x86.msm"
                 "Properties"
                 {
                 }

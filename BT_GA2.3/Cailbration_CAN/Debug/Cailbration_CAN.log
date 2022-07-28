@@ -1,4 +1,4 @@
-﻿生成启动时间为 2022/2/11 11:10:14。
+﻿生成启动时间为 2022/7/28 17:08:42。
      1>项目“F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Cailbration_CAN\Cailbration_CAN.vcxproj”在节点 2 上(rebuild 个目标)。
      1>_PrepareForClean:
          正在删除文件“Debug\BT_GA.lastbuildstate”。
@@ -39,6 +39,7 @@
          TestListBox.cpp
          StdioFileEx.cpp
          正在生成代码...
+     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\netlaye.cpp(614): warning C4700: 使用了未初始化的局部变量“nPdu”
          正在编译...
          SendDialog.cpp
          ProjiectRam.cpp
@@ -142,4 +143,4 @@
 
 生成成功。
 
-已用时间 00:00:08.14
+已用时间 00:00:07.99

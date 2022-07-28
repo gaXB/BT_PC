@@ -109,7 +109,7 @@ static uint8 Bug_Num;
 void  L_SendDiagFram(uint8* NetData);
 void  F_N_USData_IND(N_USDATA_IND*   NetInd) ;
 void  F_N_USData_CON(N_USDATA_CON   NetCon) ;
-void  F_N_USData_FF_IND(uint8 nId,uint8 Length);
+void  F_N_USData_FF_IND(uint8 nId,uint16 Length);
 void DisableCanRxInterrupt(void);
 void EnableCanRxInterrupt(void);
 //本模块实现的函数
@@ -145,7 +145,7 @@ uint8 test1;
 void NetLay_Recive(N_PDU*   nPdu)
 {
 //   uint8 i;
-
+	uint16 u16NpdLen;
    N_PCI CCF_Pci;
    uint8 LL_Data[8] = 
    {
@@ -160,11 +160,13 @@ void NetLay_Recive(N_PDU*   nPdu)
      //在接收的时候发送的处理 未做
      return ;
    }
+   else{}
    if(nPdu->Pci.nPciType==PCI_TYPE_SF||
    nPdu->Pci.nPciType==PCI_TYPE_FF )
    {
      RData_FL.R_State=RECIVE_STATE_IDLE; 
    }
+   else{}
    switch(RData_FL.R_State)
    {
       case RECIVE_STATE_IDLE:
@@ -187,52 +189,67 @@ void NetLay_Recive(N_PDU*   nPdu)
                RData_FL.R_Length=nUsdata_Rec.Length;
                F_N_USData_IND(&nUsdata_Rec) ;
             }
+            else
+            {//单帧长度不正确，不处理
+            	
+            }
          }
          else  if(nPdu->Pci.nPciType==PCI_TYPE_FF)
          {  //FF
             nUsdata_Rec.nId= nPdu->nId;
-            if(nPdu->Pci.Length_SN==0&&nPdu->Data[0]<NETLAY_MAXLENGTH)
-            {
-               if(nPdu->Data[0]==0) return;
-               nUsdata_Rec.Length=nPdu->Data[0];  //只支持最大255 个数
-               CCF_Pci.Length_SN=FC_FS_CONTISEND ; // 
-               RData_FL.R_State=RECIVE_STATE_RECCONDION;  //begin rec continue fram
-               
-               // 物理层定时
-               (void)TimeOutChkMsLong(&TimerN_Ar,0) ;
-               (void)TimeOutChkMsLong(&TimerN_Cr,0) ;
-               RData_FL.R_mId=nPdu->nId;
-               //reciv ff  ,first fram  data[0]=length ,data[1]-ind.data[0]
-               MemCopy(nUsdata_Rec.Data, &nPdu->Data[1], 6) ;  
-               RData_FL.R_Length=6;
-               RData_FL.R_SN=1;
-               
-               F_N_USData_FF_IND(nUsdata_Rec.nId,(uint8)nUsdata_Rec.Length);
+            u16NpdLen = (nPdu->Pci.Length_SN<<8) + nPdu->Data[0];
+            if (u16NpdLen < 8)
+            {//长度小于8 不响应
+            
             }
             else
-            {  // max lenth<256 err  N_Buffer_Overflow
-              // nUsdata_Rec.nId=nPdu.nId;
-              // nUsdata_Rec.N_Result = N_Buffer_Overflow ;
-               //confirm to applay
-              // F_N_USData_CON(nUsdata_Con)  ;    //receiver don't need con to app
-               
-               CCF_Pci.Length_SN=FC_FS_OVER; //send over cf
-               
-            }
-
-          //  if(nPdu->nId==AID_PHYSIC)
             {
-               CCF_Pci.nPciType=PCI_TYPE_FC;
-               //send flow control fram
-               LL_Data[0]=*(uint8*)&CCF_Pci;
-               LL_Data[1] = NETLAY_BS;         
-               RData_FL.R_BS = NETLAY_BS;      // 更改bs，设定下个流控制帧发送的bs
-               LL_Data[2]=(uint8)NETLAY_STmin; 
-               //流控制帧只支持物理寻址
-               L_SendDiagFram(LL_Data);
+            	if(u16NpdLen < NETLAY_MAXLENGTH)
+               {
+                  nUsdata_Rec.Length = u16NpdLen;  //只支持最大255 个数
+                  CCF_Pci.Length_SN = FC_FS_CONTISEND ; // 
+                  RData_FL.R_State = RECIVE_STATE_RECCONDION;  //begin rec continue fram
+                  
+                  // 物理层定时
+                  (void)TimeOutChkMsLong(&TimerN_Ar,0) ;
+                  (void)TimeOutChkMsLong(&TimerN_Cr,0) ;
+                  RData_FL.R_mId=nPdu->nId;
+                  //reciv ff  ,first fram  data[0]=length ,data[1]-ind.data[0]
+                  MemCopy(nUsdata_Rec.Data, &nPdu->Data[1], 6) ;  
+                  RData_FL.R_Length=6;
+                  RData_FL.R_SN=1;
+                  
+                  F_N_USData_FF_IND(nUsdata_Rec.nId, u16NpdLen);
+               }
+               else
+               {  // max lenth<256 err  N_Buffer_Overflow
+               // nUsdata_Rec.nId=nPdu.nId;
+               // nUsdata_Rec.N_Result = N_Buffer_Overflow ;
+                  //confirm to applay
+               // F_N_USData_CON(nUsdata_Con)  ;    //receiver don't need con to app
+                  
+                  CCF_Pci.Length_SN=FC_FS_OVER; //send over cf
+                  
+               }
+
+               if(nPdu->nId==AID_PHYSIC)
+               {
+                  CCF_Pci.nPciType=PCI_TYPE_FC;
+                  //send flow control fram
+                  LL_Data[0]=*(uint8*)&CCF_Pci;
+                  LL_Data[1] = NETLAY_BS;         
+                  RData_FL.R_BS = NETLAY_BS;      // 更改bs，设定下个流控制帧发送的bs
+                  LL_Data[2]=(uint8)NETLAY_STmin; 
+                  //流控制帧只支持物理寻址
+                  L_SendDiagFram(LL_Data);
+               }
+               else{}
             }
          }
-         //other fram is err
+         else
+         {//other fram is err
+         	
+         }
          break;
       case  RECIVE_STATE_RECCONDION :
          if(TimeOutChkMsLong(&TimerN_Cr,TIMER_N_CR) )
@@ -292,7 +309,10 @@ void NetLay_Recive(N_PDU*   nPdu)
                         //流控制帧只支持物理寻址
                         L_SendDiagFram(LL_Data);   
                      }
-                     
+                     else
+                     {//继续接收连续帧
+                     	
+                     }
                   }
                }
                else
@@ -304,6 +324,10 @@ void NetLay_Recive(N_PDU*   nPdu)
                    RData_FL.R_State=RECIVE_STATE_IDLE;      // stop rec
                }   
             } 
+            else
+            {//收到不是连续帧不处理
+            	
+            }
          }
          break;
       default:
@@ -341,7 +365,7 @@ uint8  F_N_USDATA_REQ(uint8* ReqData,uint16 Length,uint8 mId_Target)
    {  //放入缓存空间
       nUsdata_Send_1.Length=Length;
       nUsdata_Send_1.N_Result=0;
-      MemCopy(nUsdata_Send_1.Data, ReqData, (uint8)Length);
+      MemCopy(nUsdata_Send_1.Data, ReqData, Length);
       nUsdata_Send_1.nId=mId_Target; 
       SendBuffNumber=1;
    }
@@ -349,11 +373,11 @@ uint8  F_N_USDATA_REQ(uint8* ReqData,uint16 Length,uint8 mId_Target)
    {
       nUsdata_Send.Length=Length;
       nUsdata_Send.N_Result=0;
-      MemCopy(nUsdata_Send.Data, ReqData, (uint8)Length);
+      MemCopy(nUsdata_Send.Data, ReqData, Length);
          
-      nUsdata_Send.nId=mId_Target;  
-      SData_FL.S_mId=mId_Target;
-      SData_FL.S_State=SEND_STATE_SEND_FF;
+      nUsdata_Send.nId = mId_Target;  
+      SData_FL.S_mId = mId_Target;
+      SData_FL.S_State = SEND_STATE_SEND_FF;
    }
    return 1;
 }
@@ -409,7 +433,8 @@ void  NetLay_RecFC(N_PDU   *nPdu)
             // 等待下一帧流控制帧
                (void)TimeOutChkMsLong(&TimerN_Bs,0);
                //此处需要注意是否超过最大N_WFT,
-               if(NETLAY_N_WFTMAX==0)
+               SData_FL.S_WaitFCTimes++;
+               if(SData_FL.S_WaitFCTimes > NETLAY_N_WFTMAX)
                {
                   nUsdata_Con.nId= nUsdata_Send.nId;
                   nUsdata_Con.N_Result = N_WFT_OVRN ;
@@ -511,12 +536,13 @@ void  NetLay_SendFram(void)
          }
          else
          {  //send first fram
-            nPdu.Pci.Length_SN=0;
-            nPdu.Pci.nPciType=PCI_TYPE_FF;
+            nPdu.Pci.Length_SN = (uint8)(nUsdata_Send.Length>>8);
+            nPdu.Pci.nPciType = PCI_TYPE_FF;
             LL_Data[0]=*(uint8*)&nPdu.Pci;
-            LL_Data[1]= nUsdata_Send.Length&0x00ff;
+            LL_Data[1]= (uint8)(nUsdata_Send.Length&0x00ff);
             MemCopy(&LL_Data[2], nUsdata_Send.Data, 6) ;
             SData_FL.S_State=SEND_STATE_WAITFC;
+            SData_FL.S_WaitFCTimes = 0;
             (void)TimeOutChkMsLong(&TimerN_Bs,0);
             SData_FL.S_Length=6;
             SData_FL.S_SN=1;
@@ -552,9 +578,11 @@ void  NetLay_SendFram(void)
                SData_FL.S_BS--;  //150212
                if (SData_FL.S_BS == 0)
                {//如果连续帧发送次数已经到达BS，需要等待流控制帧
-                  SData_FL.S_State=SEND_STATE_WAITFC;
+                  SData_FL.S_State = SEND_STATE_WAITFC;
+                  SData_FL.S_WaitFCTimes = 0;
                   (void)TimeOutChkMsLong(&TimerN_Bs,0);  
-               }  
+               } 
+               else{} 
             }
             else
             {//send last fram
@@ -570,11 +598,28 @@ void  NetLay_SendFram(void)
             SData_FL.S_Length+=7;
 
          }
+         else
+         {//时间未到
+         	
+         }
          //must care the bs
          break;     
    }
    
-
+   //rec continue fram  TimerN_Cr timeout
+   if(RData_FL.R_State==RECIVE_STATE_RECCONDION)
+   {
+      if(TimeOutChkMsLong(&TimerN_Cr,TIMER_N_CR) )
+      {//超时
+          nUsdata_Rec.nId= nPdu.nId;
+          nUsdata_Rec.N_Result = N_Timeout_Cr ;
+         //ind to applay
+          F_N_USData_IND(&nUsdata_Rec)  ;
+          RData_FL.R_State=RECIVE_STATE_IDLE;      //timerout cr stop rec
+      }
+      else{}
+   }
+   else{}
    
 }
 

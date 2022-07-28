@@ -11,7 +11,7 @@ ver03
 
 #define  ID_DEFINE_TARGET  0x44
 
-#define  NETLAY_MAXLENGTH    255  //定义网络层所能接受的最大长度,和最大个数相关，支持dtc12 12*4+3=51
+#define  NETLAY_MAXLENGTH    4096  //定义网络层所能接受的最大长度,和最大个数相关，支持dtc12 12*4+3=51
 #define  MAX_NPDU_BUFFER     50   //网络层处理物理层的缓存
 // result define
 #define  N_Success      0
@@ -85,6 +85,7 @@ typedef struct
    uint8    S_mId;     //目标ID
    uint8    S_SN;     //SN 
    uint8    S_BS;       //BS 
+   uint8    S_WaitFCTimes;
    uint16    S_STmin;    //stmin 
    uint16   S_TimerSend;    
 } N_SendData;
@@ -112,6 +113,6 @@ typedef struct
 NM lay  相关定义NetMange_State
 ************************************************/
 
-extern void MemCopy(uint8* dest,uint8* Src,uint8 Length);
+extern void MemCopy(uint8* dest,uint8* Src,uint16 Length);
 void  Deal_UDSNetLay(void);
 #endif

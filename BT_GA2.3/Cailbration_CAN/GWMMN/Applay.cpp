@@ -276,7 +276,7 @@ void  F_N_USData_IND(N_USDATA_IND*  NetInd)
       APData.A_PCI=NetInd->Data[0];
       APData.A_Length=NetInd->Length;
       if(APData.A_Length<1) return;
-      MemCopy(APData.A_Data, &NetInd->Data[1], (uint8)(APData.A_Length-1));
+      MemCopy(APData.A_Data, &NetInd->Data[1], (APData.A_Length-1));
       //begin p2can_server
      // (void)TimeOutChkMsLong(&TimerP2Can,0);
       //AppState=APP_STATE_RESPONE;    
@@ -448,7 +448,7 @@ void  F_N_USData_IND(N_USDATA_IND*  NetInd)
 
 }
 
-void  F_N_USData_FF_IND(uint8 nId,uint8 Length)
+void  F_N_USData_FF_IND(uint8 nId,uint16 Length)
 {
    if(AppState==APP_STATE_IDLE)
    {  //stop p3 sever

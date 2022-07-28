@@ -11,7 +11,7 @@ ver0.0.0
 
 
 /*******************************************************************************
- * Function:        void MemCopy(uint8* dest,uint8* Src,uint8 Length)
+ * Function:        void MemCopy(uint8* dest,uint8* Src,uint16 Length)
  *
  * Description:     数组之间传递数据
  *
@@ -20,9 +20,9 @@ ver0.0.0
  * Notes:           none		
  *
 ********************************************************************************/
-void MemCopy(uint8* dest,uint8* Src,uint8 Length)
+void MemCopy(uint8* dest,uint8* Src,uint16 Length)
 {
-   uint8 i;
+   uint16 i;
    for(i=0;i<Length;i++)
    {
       *dest++=*Src++;

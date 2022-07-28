@@ -447,6 +447,10 @@ void CCailbration_CANDlg::BootLoad_DoingNext(void)
 		SendByte[1] = 0x01;
 		SendByte[2] = (unsigned char) (sCanCofig.RCID_DEPENDENCE >>8);
 		SendByte[3] = (unsigned char) (sCanCofig.RCID_DEPENDENCE & 0x00ff);
+
+		SendByte[4] = sCodeData.sRegionMsg[0].regionchecksum;
+
+
 		F_N_USDATA_REQ(SendByte, 4,ID_DEFINE_TARGET);
 		break;
 	case  BT_STATE_DEPENDENCE:
@@ -476,7 +480,7 @@ void CCailbration_CANDlg::BootLoad_DoingNext(void)
 }
 
 
-#define  UDSNETLAY_MAXSIZE  252
+#define  UDSNETLAY_MAXSIZE  4094
 void CCailbration_CANDlg::Deal_TransSever(void)
 {
 	CString str;
