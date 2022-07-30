@@ -88,13 +88,14 @@ typedef struct
 
 #define     _COL_Width  40
 #define     _ROW_Width  75
-
+int ReadHexFile(unsigned char *pData, CString filename);
 //hex 文件 的行  列
 //#define   HEXDATA_ROW_MAXNUM       2000
 //#define   HEXDATA_COL_MAXNUM		100
 #define  BT_STATE_START      0
 #define  BT_STATE_PM         1
 #define  BT_STATE_SCURITY    2
+#define  BT_STATE_HEADFILE    3
 //#define  BT_STATE_ERASE      3
 #define  BT_STATE_LOADE      4
 #define  BT_STATE_INTERGRITY     5
@@ -106,6 +107,8 @@ typedef struct
 #define  BT_STATE_READCHECKSUM         11
 #define  BT_STATE_READCHECKSUMWAIT      12
 #define  BT_STATE_PRECONDITIONS         13
+
+#define  BT_STATE_CHECKHASH      14
 // CCailbration_CANDlg 对话框
 class CCailbration_CANDlg : public CDialog
 {
@@ -225,6 +228,11 @@ public:
 	HEXDATA_ALL     sFlashDrive;
 
 	//
+	
+	unsigned char headfile_hexdata[1500];
+	int headfile_len;
+	BOOL bHeadFileOK;
+	BOOL bHashCheckOK;
 	void DiagTestPresent(void);
 	uint8 m_DiagTestPresent;
 	void ReceiveAPPData(A_PDU* APData);

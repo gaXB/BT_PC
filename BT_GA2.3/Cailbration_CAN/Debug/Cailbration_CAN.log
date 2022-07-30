@@ -1,4 +1,4 @@
-﻿生成启动时间为 2022/7/28 17:08:42。
+﻿生成启动时间为 2022/7/30 10:38:10。
      1>项目“F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Cailbration_CAN\Cailbration_CAN.vcxproj”在节点 2 上(rebuild 个目标)。
      1>_PrepareForClean:
          正在删除文件“Debug\BT_GA.lastbuildstate”。
@@ -7,7 +7,7 @@
        ClCompile:
          D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\BT_GA.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
          stdafx.cpp
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\BT_GA.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ADO.cpp Cailbration_Boot.cpp CANSetDialog.cpp CheckDialog.cpp DatatoGrid.cpp DialogConfirm1.cpp DomodalDlg.cpp EepromSetForProject.cpp LogFile.cpp ProjiectRam.cpp SendDialog.cpp StdioFileEx.cpp TestListBox.cpp GridCtrl_src\TitleTip.cpp Cailbration_CAN.cpp Cailbration_CANDlg.cpp EepromDialog1.cpp TestDlg_APP.cpp GridCtrl_src\GridCell.cpp GridCtrl_src\GridCellBase.cpp GridCtrl_src\GridCtrl.cpp GridCtrl_src\GridDropTarget.cpp GridCtrl_src\InPlaceEdit.cpp BootDialog.cpp DragEdit.cpp edithexinput.cpp S19Read.cpp GWMMN\Applay.cpp GWMMN\DealString.cpp GWMMN\NetLaye.cpp GWMMN\timerout.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\BT_GA.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ADO.cpp Cailbration_Boot.cpp CANSetDialog.cpp CheckDialog.cpp DatatoGrid.cpp DialogConfirm1.cpp DomodalDlg.cpp EepromSetForProject.cpp HexFileRead.cpp LogFile.cpp ProjiectRam.cpp SendDialog.cpp StdioFileEx.cpp TestListBox.cpp GridCtrl_src\TitleTip.cpp Cailbration_CAN.cpp Cailbration_CANDlg.cpp EepromDialog1.cpp TestDlg_APP.cpp GridCtrl_src\GridCell.cpp GridCtrl_src\GridCellBase.cpp GridCtrl_src\GridCtrl.cpp GridCtrl_src\GridDropTarget.cpp GridCtrl_src\InPlaceEdit.cpp BootDialog.cpp DragEdit.cpp edithexinput.cpp S19Read.cpp GWMMN\Applay.cpp GWMMN\DealString.cpp GWMMN\NetLaye.cpp GWMMN\timerout.cpp
          timerout.cpp
          NetLaye.cpp
          DealString.cpp
@@ -44,6 +44,7 @@
          SendDialog.cpp
          ProjiectRam.cpp
          LogFile.cpp
+         HexFileRead.cpp
          EepromSetForProject.cpp
      1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromsetforproject.cpp(76): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
      1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromsetforproject.cpp(1446): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
@@ -72,6 +73,7 @@
          Debug\DialogConfirm1.obj
          Debug\DomodalDlg.obj
          Debug\EepromSetForProject.obj
+         Debug\HexFileRead.obj
          Debug\LogFile.obj
          Debug\ProjiectRam.obj
          Debug\SendDialog.obj
@@ -111,6 +113,7 @@
          Debug\DialogConfirm1.obj
          Debug\DomodalDlg.obj
          Debug\EepromSetForProject.obj
+         Debug\HexFileRead.obj
          Debug\LogFile.obj
          Debug\ProjiectRam.obj
          Debug\SendDialog.obj
@@ -143,4 +146,4 @@
 
 生成成功。
 
-已用时间 00:00:07.99
+已用时间 00:00:08.24

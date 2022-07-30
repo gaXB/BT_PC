@@ -127,6 +127,7 @@
     <ClCompile Include="DialogConfirm1.cpp" />
     <ClCompile Include="DomodalDlg.cpp" />
     <ClCompile Include="EepromSetForProject.cpp" />
+    <ClCompile Include="HexFileRead.cpp" />
     <ClCompile Include="LogFile.cpp" />
     <ClCompile Include="ProjiectRam.cpp" />
     <ClCompile Include="SendDialog.cpp" />

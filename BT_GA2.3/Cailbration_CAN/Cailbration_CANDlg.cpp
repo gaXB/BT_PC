@@ -1303,12 +1303,12 @@ void CCailbration_CANDlg::OnStnClickedStaticMessage()
 	// TODO: 在此添加控件通知处理程序代码
 }
 
-
 void CCailbration_CANDlg::OnBnClickedButtonOpens20()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	CString strName;
 	CString str, m_Result;
+
 	//CFileDialog dlg(FALSE,_T("s19; hex"),_T("*.s19; *.hex"),OFN_EXPLORER,_T("程序文件(.s19)| *.s19; *.hex|所有文件（*.*)|*.*||)"));
 	CFileDialog dlg(FALSE,_T("s19; hex"),_T("*.s19; *.hex"),OFN_EXPLORER,_T("程序文件(.s19)| *.s19; *.hex|所有文件（*.*)|*.*||)"));
 	if(dlg.DoModal()==IDOK)

@@ -21,20 +21,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2EBE7C3A1F3F4DF285F4159AB4A1D325"
-        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_4D825C57C94045C6AF648D670CF9CFA9"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6C4A97481921484CA26159D06BF49BA4"
-        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -51,8 +39,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_92BB0215331044A0A4D7F747B34B8AB5"
+        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_972B434B057D4E8AA9DCC728F95D1A73"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D473BEC1883748A59CB034BFCE22610D"
+        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -427,7 +427,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_89E76C822CF94F27889504FD0613B14D"
             {
-            "Name" = "8:BT_GA2.4"
+            "Name" = "8:BT_GA2.5"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -835,11 +835,11 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_2EBE7C3A1F3F4DF285F4159AB4A1D325"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_92BB0215331044A0A4D7F747B34B8AB5"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:Microsoft_VC100_DebugMFC_x86.msm"
+            "SourcePath" = "8:Microsoft_VC100_DebugCRT_x86.msm"
                 "Properties"
                 {
                 }
@@ -849,11 +849,11 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_6C4A97481921484CA26159D06BF49BA4"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_D473BEC1883748A59CB034BFCE22610D"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "SourcePath" = "8:Microsoft_VC100_DebugCRT_x86.msm"
+            "SourcePath" = "8:Microsoft_VC100_DebugMFC_x86.msm"
                 "Properties"
                 {
                 }

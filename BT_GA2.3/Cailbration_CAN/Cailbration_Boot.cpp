@@ -210,6 +210,35 @@ void CCailbration_CANDlg::ReceiveAPPData(A_PDU* APData)
 						BootLoad_DoingNext();
 					}
 				}
+				else if (( (APData->A_Data[1] <<8) + APData->A_Data[2]) == 0xDFFC)
+				{
+					if (m_BootLoadState == BT_STATE_HEADFILE)
+					{
+						if (APData->A_Data[3]  == 0)
+						{
+							bHeadFileOK = TRUE;
+						}
+						else
+						{
+							bHeadFileOK = FALSE;
+						}
+					}
+				}
+				else if (( (APData->A_Data[1] <<8) + APData->A_Data[2]) == 0xDFFB)
+				{
+					if (m_BootLoadState == BT_STATE_CHECKHASH)
+					{
+						if (APData->A_Data[3]  == 0)
+						{
+							bHashCheckOK = TRUE;
+						}
+						else
+						{
+							bHashCheckOK = FALSE;
+						}
+						BootLoad_DoingNext();
+					}
+				}
 				break;
 			//read   dtc  end 
 			case  0x34:
@@ -273,7 +302,7 @@ void CCailbration_CANDlg::DiagRecNRC(uint8* aData)
 
 void CCailbration_CANDlg::BootLoad_ONTIMER(uint8 nTimer)
 {
-	uint8 SendByte[20];
+	uint8 SendByte[1504];
 	switch(m_BootLoadState)
 	{
 	default:
@@ -357,18 +386,57 @@ void CCailbration_CANDlg::BootLoad_ONTIMER(uint8 nTimer)
 	case BT_STATE_SCURITY:
 		if (FBScurity == 2)
 		{
+			m_BootLoadState = BT_STATE_HEADFILE;
+
+			ShowMainInfo(L"解锁成功",2);
+			headfile_len = ReadHexFile(headfile_hexdata, L"headfile.txt");
+			if (headfile_len > 600)
+			{
+				ShowMainInfo(L"headfile 文件验证",2);
+				m_BootLoadState = BT_STATE_HEADFILE;
+
+				SendByte[0] = 0x31;
+				SendByte[1] = 01;   
+				SendByte[2] = (unsigned char) (0xDFFC >>8);
+				SendByte[3] = (unsigned char) (0xDFFC & 0x00ff);
+				MemCopy(&SendByte[4], headfile_hexdata, headfile_len);
+				F_N_USDATA_REQ(SendByte, 4+headfile_len,ID_DEFINE_TARGET);
+				bHeadFileOK = FALSE;
+			}
+			else
+			{
+				//直接下载
+				ShowMainInfo(L"headfile 文件不存在直接进行下载",2);
+				m_BootLoadState = BT_STATE_LOADE;
+				m_LoadTask = LOAD_TASK_NEXTREGION;
+				nRegion = 0;
+				nFLashRegion = 0;
+				Deal_TransSever();
+				SetTimer(nTimer, 1100, NULL);
+				ShowMainInfo(L"DOWNLOAD。。。。",2);
+			}
+		}
+		else
+		{
+			ShowMainInfo(L"解锁失败， 结束下载",2);
+			m_BootLoadState = BT_STATE_END;
+		}
+		break;
+	case BT_STATE_HEADFILE:
+		if (bHeadFileOK == TRUE)
+		{
 			m_BootLoadState = BT_STATE_LOADE;
 			m_LoadTask = LOAD_TASK_NEXTREGION;
 			nRegion = 0;
 			nFLashRegion = 0;
 			Deal_TransSever();
 			SetTimer(nTimer, 1100, NULL);
-			ShowMainInfo(L"解锁成功",2);
+			ShowMainInfo(L"HEADFILE 验证成功",2);
 			ShowMainInfo(L"DOWNLOAD。。。。",2);
 		}
 		else
 		{
-			ShowMainInfo(L"解锁失败， 结束下载",2);
+			ShowMainInfo(L"HEADFILE 验证， 结束下载",2);
 			m_BootLoadState = BT_STATE_END;
 		}
 		break;
@@ -454,11 +522,40 @@ void CCailbration_CANDlg::BootLoad_DoingNext(void)
 		F_N_USDATA_REQ(SendByte, 4,ID_DEFINE_TARGET);
 		break;
 	case  BT_STATE_DEPENDENCE:
-	    ShowMainInfo(L"校验-依赖性成功，开始复位。。。",2);
-		m_BootLoadState = BT_STATE_RESET;
-		SendByte[0] = 0x11;
-		SendByte[1] = 0x01;
-		F_N_USDATA_REQ(SendByte, 2, ID_DEFINE_TARGET);
+		if (bHeadFileOK == TRUE)
+		{
+			ShowMainInfo(L"校验-依赖性成功，进行hash校验。。。",2);
+			m_BootLoadState = BT_STATE_CHECKHASH;
+			SendByte[0] = 0x31;
+			SendByte[1] = 0x01;
+			SendByte[2] = (unsigned char) (0xDFFB >>8);
+			SendByte[3] = (unsigned char) (0xDFFB & 0x00ff);
+			bHashCheckOK = FALSE;
+			F_N_USDATA_REQ(SendByte, 4,ID_DEFINE_TARGET);
+		}
+		else
+		{
+			ShowMainInfo(L"校验-依赖性成功，跳过hash，开始复位。。。",2);
+			m_BootLoadState = BT_STATE_RESET;
+			SendByte[0] = 0x11;
+			SendByte[1] = 0x01;
+			F_N_USDATA_REQ(SendByte, 2, ID_DEFINE_TARGET);
+		}
+		break;
+	case BT_STATE_CHECKHASH:
+		if (bHashCheckOK)
+		{
+			ShowMainInfo(L"hashcheck 成功，开始复位。。。",2);
+			m_BootLoadState = BT_STATE_RESET;
+			SendByte[0] = 0x11;
+			SendByte[1] = 0x01;
+			F_N_USDATA_REQ(SendByte, 2, ID_DEFINE_TARGET);
+		}
+		else
+		{
+			ShowMainInfo(L"hashcheck 失败，结束。。。",2);
+			m_BootLoadState = BT_STATE_END;
+		}
 		break;
 	case BT_STATE_RESET:
 		ShowMainInfo(L"复位成功，下载完成！！！！",2);
