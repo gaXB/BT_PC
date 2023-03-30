@@ -904,7 +904,7 @@ void CCailbration_CANDlg::Deal_TransSever(void)
 
 void CCailbration_CANDlg::SetTransSize(int size)
 {
-	i16TransSize = size & 0xfffffc;
+	i16TransSize = size-2;//size & 0xfffffc;
 }
 
 

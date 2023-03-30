@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (52fb67f8).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (c15e0a47).
 //
-// f:\designer\pro\c++\bt_ga2.0\cailbration_can\release\msado15.tlh
+// f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\release\msado15.tlh
 //
 // C++ source equivalent of type library C:\Program Files\Common Files\System\ado\msado15.dll
-// compiler-generated file created 12/18/19 at 13:33:20 - DO NOT EDIT!
+// compiler-generated file created 12/28/22 at 10:28:38 - DO NOT EDIT!
 
 #pragma once
 #pragma pack(push, 8)
@@ -5022,6 +5022,6 @@ _Record_Deprecated : _ADO
 // Wrapper method implementations
 //
 
-#include "f:\designer\pro\c++\bt_ga2.0\cailbration_can\release\msado15.tli"
+#include "f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\release\msado15.tli"
 
 #pragma pack(pop)

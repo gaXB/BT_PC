@@ -957,25 +957,23 @@ UINT CCailbration_CANDlg::ReceiveThread(void *param)
 					}
 					else
 					{
+						str="RX:";
+						tmpstr.Format(L"ID %02x  Data:", frameinfo[i].ID );
+						str += tmpstr;
 						if (pWnd->m_MessagePoint == 1)
-						{
-							str="RX:";
-							tmpstr.Format(L"ID %02x  Data:", frameinfo[i].ID );
-							str += tmpstr;
 							box->InsertString(box->GetCount(),str);
-							pWnd->m_LogFile.WriteFile(str);
-							str="";
-							if(frameinfo[i].DataLen>8)
-								frameinfo[i].DataLen=8;
-							for(int j=0;j<frameinfo[i].DataLen;j++)
-							{
-								tmpstr.Format(L"%02x ",frameinfo[i].Data[j]);
-								str+=tmpstr;
-							}
-							box->InsertString(box->GetCount(),str);	
-							pWnd->m_LogFile.WriteFile(str);
+						pWnd->m_LogFile.WriteFile(str);
+						str="";
+						if(frameinfo[i].DataLen>8)
+							frameinfo[i].DataLen=8;
+						for(int j=0;j<frameinfo[i].DataLen;j++)
+						{
+							tmpstr.Format(L"%02x ",frameinfo[i].Data[j]);
+							str+=tmpstr;
 						}
- 						
+						if (pWnd->m_MessagePoint == 1)
+							box->InsertString(box->GetCount(),str);	
+						pWnd->m_LogFile.WriteFile(str);
 					}
 					//ShowTime();
 				}
@@ -1030,7 +1028,7 @@ void ShowData(VCI_CAN_OBJ sVData)
 {
 	CString str;
 
-	if (pWnd->m_MessagePoint == 0)return;
+	//if (pWnd->m_MessagePoint == 0)return;
    //CTestDlg *dlg=(CTestDlg*)param;	
 	CListBox *box=(CListBox *)pWnd->GetDlgItem(IDC_LIST_INFO);
 	
@@ -1043,7 +1041,10 @@ void ShowData(VCI_CAN_OBJ sVData)
 	//	strDate.Format("%4d-%2d-%2d",st.wYear,st.wMonth,st.wDay);
 	strTime.Format(L"time£º%2d:%2d:%2d",st.wMinute,st.wSecond,st.wMilliseconds) ;
 	str += strTime;
-    box->InsertString(box->GetCount(),str);
+    if (pWnd->m_MessagePoint == 1)
+	{
+		box->InsertString(box->GetCount(),str);
+	}
 	pWnd->m_LogFile.WriteFile(str);
 
 }
@@ -1088,7 +1089,7 @@ void  L_SendDiagFram(uint8* NetData)
 			pWnd->BDialog_ShowInfo(str);
 		}
 		else
-			ShowData(vco[0]);		
+			ShowData(vco[0]);	
 	}
 	else
 	{
