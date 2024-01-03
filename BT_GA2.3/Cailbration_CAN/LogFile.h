@@ -15,6 +15,7 @@ public:
 	// Ð´¼ÇÂ¼
 	int WriteFile(CString logStr);
 	int EndFile(void);
+	bool FileIsOK(void);
 	int m_openok;
 };
 

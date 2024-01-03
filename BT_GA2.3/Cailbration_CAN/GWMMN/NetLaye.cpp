@@ -349,7 +349,6 @@ void NetLay_Recive(N_PDU*   nPdu)
 ********************************************************************************/
 uint8  F_N_USDATA_REQ(uint8* ReqData,uint16 Length,uint8 mId_Target)
 {
-
   
    if(Length>NETLAY_MAXLENGTH)
    {

@@ -30,7 +30,7 @@
 #define  SECURITY_SENDK_LEV1  0x02
 #define  SECURITY_SENDK_LEV2  0x06
 #define  SECURITY_REQSD_LEV3  0x09
-#define  SECURITY_SENDK_LEV3  0x0A
+#define  SECURITY_SENDK_LEV3  0x0a
 
 
 #define  SEVER_SID_TP         0X3E     //TEST PRESENT   

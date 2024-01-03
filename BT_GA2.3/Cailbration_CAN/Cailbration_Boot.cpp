@@ -310,6 +310,11 @@ void CCailbration_CANDlg::BootLoad_ONTIMER(uint8 nTimer)
 	case BT_STATE_END:
 		m_LogFile.EndFile();
 		KillTimer(nTimer);
+		if (m_Close == 1)
+		{
+			ShowMainInfo(L"已经取消，尝试继续下载",2);
+			OnBnClickedButtonBegin();
+		}
 		break;
 	case BT_STATE_START:
 		//m_LoadProgress.SetRange(0,100);
@@ -357,11 +362,12 @@ void CCailbration_CANDlg::BootLoad_ONTIMER(uint8 nTimer)
 		SendByte[0] = 0x10;
 		SendByte[1] = 2;   
 		SendByte[2] = 2;
+		m_BootLoadState = BT_STATE_PM;
+		FBSessionMode = 0;
 		F_N_USDATA_REQ(SendByte, 2,ID_DEFINE_TARGET);
 		ShowMainInfo(L"尝试进入BT模式。。。",2);
 		//ShowMainInfo(L"尝试进入BT模式....",2);
-		m_BootLoadState = BT_STATE_PM;
-		FBSessionMode = 0;
+		
 		SetTimer(nTimer, 500, NULL);
 		break;
 	case BT_STATE_PM:

@@ -167,7 +167,7 @@ public:
 	afx_msg void OnBnClickedButtonBegin();
 	void DisplayDID(uint8 *Data, uint8 Length);
 	void WriteDID(uint8 *Data, uint8 Length);
-	void ReadDTC(uint8 *Data, uint8 Length);
+	void ReadDTC(uint8 *Data, uint16 Length);
 	//void ReadDTC(uint8 *Data, uint8 Length);
 	void  OnToolbar1(void);
 	void  OnToolbar2(void);
@@ -247,6 +247,7 @@ public:
 	uint8 m_MessagePoint;
 	uint32 u32OldCheckSum;
 	uint32 u32NewCheckSum;
+	uint8 m_Close;
 	CLogFile m_LogFile;
 	afx_msg void OnEnChangeEdit13();
 	afx_msg void OnStnClickedStaticMessage();

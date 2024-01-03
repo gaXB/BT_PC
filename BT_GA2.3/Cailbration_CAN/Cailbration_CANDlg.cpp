@@ -170,6 +170,8 @@ CCailbration_CANDlg::CCailbration_CANDlg(CWnd* pParent /*=NULL*/)
 	, Eeprom_Window_Flg(WINDOUS_FLG_RAM)
 	,m_MessagePoint(0)
 	, m_nStep(0)
+	,m_Close(0)
+	,m_BootLoadState(BT_STATE_END)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDI_ICON_EEPROM2);
 }
@@ -488,6 +490,11 @@ BOOL CCailbration_CANDlg::OnInitDialog()
 
 	m_MessagePoint = 1;
 	GetDlgItem(IDC_BUTTON_SAVE)->SetWindowText(L"提示开");
+
+
+	AfxBeginThread(ReceiveThread,this);
+	AfxBeginThread(SendThread,this);
+	TIMEID = timeSetEvent(1,1,&TimerCallBack,(DWORD)this,1);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -618,22 +625,39 @@ int panny_call_back(int a, int b)
 void CCailbration_CANDlg::OnBnClickedButtonBegin()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	m_BootLoadState = BT_STATE_START;
-	SetTimer(ID_TIMER_COM,500,NULL);
-	ShowMainInfo(L"开始下载",2);
+	if (m_BootLoadState == BT_STATE_END || m_BootLoadState == BT_STATE_START)
+	{
+		m_BootLoadState = BT_STATE_START;
+		SetTimer(ID_TIMER_COM,500,NULL);
+		ShowMainInfo(L"开始下载",2);
+		m_LogFile.CreatFile();
+		uint8 SendByte[3];
+		SendByte[0] = 0x22;
+		SendByte[1] = (uint8)(ROUTINE_ID_CHECKSUM >>8);   
+		SendByte[2] = (uint8)(ROUTINE_ID_CHECKSUM & 0xff);
+		F_N_USDATA_REQ(SendByte, 3,ID_DEFINE_TARGET);
+		u32OldCheckSum = 0;
 
-	uint8 SendByte[3];
-	SendByte[0] = 0x22;
-	SendByte[1] = (uint8)(ROUTINE_ID_CHECKSUM >>8);   
-	SendByte[2] = (uint8)(ROUTINE_ID_CHECKSUM & 0xff);
-	F_N_USDATA_REQ(SendByte, 3,ID_DEFINE_TARGET);
-	u32OldCheckSum = 0;
-
-	m_LoadProgress.SetRange(0,100);
-		m_LoadProgress.SetPos(0);
-	UpdateData(FALSE);
-
-	m_LogFile.CreatFile();
+		m_LoadProgress.SetRange(0,100);
+			m_LoadProgress.SetPos(0);
+		UpdateData(FALSE);
+		m_Close = 0;
+	}
+	else
+	{
+		m_BootLoadState = BT_STATE_END;
+		SetTimer(ID_TIMER_COM,500,NULL);
+		ShowMainInfo(L"正在下载，尝试取消",2);
+		uint8 SendByte[3];
+		SendByte[0] = 0x22;
+		SendByte[1] = (uint8)(ROUTINE_ID_CHECKSUM >>8);   
+		SendByte[2] = (uint8)(ROUTINE_ID_CHECKSUM & 0xff);
+		F_N_USDATA_REQ(SendByte, 3,ID_DEFINE_TARGET);
+		UpdateData(FALSE);
+		m_Close = 1;
+		m_LoadTask = LOAD_TASK_FAILED;
+	}
+	
 	//SessionMode = SESSION_MODE_PROGRAM;
 /*	int p = 10;
 	int panny1;
@@ -791,9 +815,7 @@ void CCailbration_CANDlg::OnToolbar1(void)
 	if(VCI_StartCAN(DEVICE_TYPE,DEVICE_ID,DEVICE_NUM)==1)
 	{
 		ShowInfo(L"启动成功",0);	
-		AfxBeginThread(ReceiveThread,this);
-		AfxBeginThread(SendThread,this);
-		TIMEID = timeSetEvent(1,1,&TimerCallBack,(DWORD)this,1);
+
 	    SessionMode = SESSION_MODE_EXTERN;    //会话模式
         SecurityState = SECURITY_STATE_SSEED1;   //安全访问模式
 	}
@@ -899,10 +921,14 @@ UINT CCailbration_CANDlg::ReceiveThread(void *param)
 	//	ShowTime();
 	//	TIME++;
 	//	Deal_UDSNetLay();
-		if (pWnd->m_ComDlg.m_Enable == 0)
-			break;
+		//if (pWnd->m_ComDlg.m_Enable == 0)
+		//	break;
 		len=VCI_Receive(DEVICE_TYPE , DEVICE_ID, DEVICE_NUM ,frameinfo,50,200);
-		if(len<=0)
+
+		if (pWnd->m_ComDlg.m_Enable == 0)
+		{
+		}
+		else if(len<=0)
 		{
 			//注意：如果没有读到数据则必须调用此函数来读取出当前的错误码，
 			//千万不能省略这一步（即使你可能不想知道错误码是什么）
@@ -952,8 +978,14 @@ UINT CCailbration_CANDlg::ReceiveThread(void *param)
 							tmpstr.Format(L"%02x ",frameinfo[i].Data[j]);
 							str+=tmpstr;
 						}
-						dlg->BDialog_ShowInfo(str);
 
+						SYSTEMTIME st;
+						CString strTime;
+						GetLocalTime(&st);
+						//	strDate.Format("%4d-%2d-%2d",st.wYear,st.wMonth,st.wDay);
+						strTime.Format(L"time：%2d:%2d:%2d",st.wMinute,st.wSecond,st.wMilliseconds) ;
+						str += strTime;
+						dlg->BDialog_ShowInfo(str);
 					}
 					else
 					{
@@ -971,6 +1003,16 @@ UINT CCailbration_CANDlg::ReceiveThread(void *param)
 							tmpstr.Format(L"%02x ",frameinfo[i].Data[j]);
 							str+=tmpstr;
 						}
+
+						
+						SYSTEMTIME st;
+						CString strTime;
+						GetLocalTime(&st);
+						//	strDate.Format("%4d-%2d-%2d",st.wYear,st.wMonth,st.wDay);
+						strTime.Format(L"time：%2d:%2d:%2d",st.wMinute,st.wSecond,st.wMilliseconds) ;
+						str += strTime;
+
+
 						if (pWnd->m_MessagePoint == 1)
 							box->InsertString(box->GetCount(),str);	
 						pWnd->m_LogFile.WriteFile(str);
@@ -1045,14 +1087,20 @@ void ShowData(VCI_CAN_OBJ sVData)
 	{
 		box->InsertString(box->GetCount(),str);
 	}
-	pWnd->m_LogFile.WriteFile(str);
+	if (pWnd->m_LogFile.FileIsOK() == FALSE)
+	{
+		str = L"ABC";
+	}
+	else
+		pWnd->m_LogFile.WriteFile(str);
 
 }
 
 //UDS CAN 接口函数
 //接口函数、
 uint8 DiagID;
-
+uint16 sendtimes;
+uint16 debugtime;
 void  L_SendDiagFram(uint8* NetData)
 {
 	//CWnd *wnd  = AfxGetMainWnd();
@@ -1071,6 +1119,7 @@ void  L_SendDiagFram(uint8* NetData)
 	vco[0].RemoteFlag = 0; // 数据帧 
 	vco[0].ExternFlag = (uint8)ID_FRAMESIZE; // 标准帧 
 	vco[0].DataLen = 8; // 数据长度1个字节 
+
 	for (int i =0 ; i< 8; i++)
 		vco[0].Data[i] = NetData[i]; // 数据0为0x66
 //	if (TIMEID) return ;
@@ -1079,6 +1128,7 @@ void  L_SendDiagFram(uint8* NetData)
 	if(VCI_Transmit(DEVICE_TYPE, DEVICE_ID, DEVICE_NUM, vco,1)==1)
 	{
 	//	m_sendcnt += 1;
+
 		if (pWnd->Eeprom_Window_Flg == WINDOUS_FLG_BOOT)
 		{
 			CString str;

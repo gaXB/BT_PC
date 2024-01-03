@@ -26,14 +26,15 @@ bool CLogFile::CreatFile(void)
 	int m_nMinute = time.GetMinute();   ///分钟
 	int m_nSecond = time.GetSecond();   ///秒
 	static int num;
-	num = 1;
+	num++;
 //	m_FileName.Format(_T("Log%04d%02d%02d%02d%02d%02d.txt"), m_nYear,m_nMonth,m_nDay, m_nHour,m_nMinute,m_nSecond);
 	m_FileName.Format(_T("LogFile%d.txt"), num);
 	if (m_openok == 1)
 	{
 		myFile.Close();
+		m_openok = 2;
 	}
-	m_openok = 1;
+
 	if(!myFile.Open(m_FileName,  CFile::modeCreate|CFile::typeText|CFile::modeReadWrite),&fileException) 
 	{ 
 		TRACE("Can't open file %s, error = %u\n",m_FileName,fileException.m_cause); 
@@ -42,6 +43,15 @@ bool CLogFile::CreatFile(void)
 	CString str;
 	str.Format(_T("开始记录%04d%02d%02d%02d%02d%02d\n"),m_nYear,m_nMonth,m_nDay, m_nHour,m_nMinute,m_nSecond);
 	myFile.WriteString(str); 
+	if (FileIsOK())
+	{
+		m_openok = 1;
+	}
+	else
+	{
+		m_openok = 0;
+	}
+	
 	//myFile.Close();
 	//myFile.SeekToEnd();
 /*	myFile.WriteString(L"时间,"); 
@@ -69,6 +79,10 @@ int CLogFile::WriteFile(CString logStr)
 	return 0;
 }
 
+bool CLogFile::FileIsOK(void)
+{
+	return myFile.m_pStream == NULL ? FALSE:TRUE;
+}
 
 int CLogFile::EndFile(void)
 {

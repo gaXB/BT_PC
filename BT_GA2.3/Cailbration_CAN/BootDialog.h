@@ -84,7 +84,7 @@ public:
 	afx_msg void OnBnClickedButtonEarse();
 	afx_msg void OnBnClickedButtonDownload();
 	void  DisplayDID(uint8 *Data, uint8 Length);
-	void  ReadDTC(uint8 *Data, uint8 Length);
+	void  ReadDTC(uint8 *Data, uint16 Length);
 	//
 	void Deal_TransSever(void);
 	afx_msg void OnBnClickedButtonIntegrity();

@@ -344,16 +344,22 @@ if (lpsz == NULL)
 
 }
 
+int abc;
 if(!m_bIsUnicodeText)
 
 {
 
+	if (m_pStream == NULL)
+	{
+		abc++;
+	}
+	else{
     ASSERT(m_pStream != NULL);
 
     if (fputs(lpsz, m_pStream) == _TEOF)
 
      AfxThrowFileException(CFileException::diskFull, _doserrno, m_strFileName);
-
+	}
 }
 
 else

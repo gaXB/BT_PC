@@ -63,7 +63,7 @@ extern uint8 F_N_USDATA_REQ(uint8* ReqData,uint16 Length,uint8 mId_Target)  ;
 extern void  Respone_POS_2(uint8 SID,uint8 FSID,uint8 Target_Id);
 extern void Deal_ReadDID(uint8 *Data, uint8 Length);
 extern void Deal_WriteDID(uint8 *Data, uint8 Length);
-extern void Deal_ReadDTC(uint8 *Data, uint8 Length);
+extern void Deal_ReadDTC(uint8 *Data, uint16 Length);
 extern void Deal_IOControl(void);
 extern void Deal_ReadAddr(void);
 extern void  Save_DTC(void);
