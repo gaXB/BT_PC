@@ -1,67 +1,14 @@
-﻿生成启动时间为 2024/1/3 11:32:26。
-     1>项目“F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Cailbration_CAN\Cailbration_CAN.vcxproj”在节点 2 上(rebuild 个目标)。
-     1>_PrepareForClean:
-         正在删除文件“Debug\BT_GA.lastbuildstate”。
-       InitializeBuildStatus:
+﻿生成启动时间为 2024/1/17 20:20:10。
+     1>项目“F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Cailbration_CAN\Cailbration_CAN.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
          正在创建“Debug\BT_GA.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\BT_GA.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\BT_GA.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ADO.cpp Cailbration_Boot.cpp CANSetDialog.cpp CheckDialog.cpp DatatoGrid.cpp DialogConfirm1.cpp DomodalDlg.cpp EepromSetForProject.cpp HexFileRead.cpp LogFile.cpp ProjiectRam.cpp SendDialog.cpp StdioFileEx.cpp TestListBox.cpp GridCtrl_src\TitleTip.cpp Cailbration_CAN.cpp Cailbration_CANDlg.cpp EepromDialog1.cpp TestDlg_APP.cpp GridCtrl_src\GridCell.cpp GridCtrl_src\GridCellBase.cpp GridCtrl_src\GridCtrl.cpp GridCtrl_src\GridDropTarget.cpp GridCtrl_src\InPlaceEdit.cpp BootDialog.cpp DragEdit.cpp edithexinput.cpp S19Read.cpp GWMMN\Applay.cpp GWMMN\DealString.cpp GWMMN\NetLaye.cpp GWMMN\timerout.cpp
-         timerout.cpp
-         NetLaye.cpp
-         DealString.cpp
-         Applay.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\applay.cpp(382): warning C4244: “参数”: 从“unsigned short”转换到“unsigned char”，可能丢失数据
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\applay.cpp(416): warning C4244: “参数”: 从“unsigned short”转换到“unsigned char”，可能丢失数据
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\applay.cpp(267): warning C4101: “dtc_i”: 未引用的局部变量
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\applay.cpp(267): warning C4101: “DTCAvailMask”: 未引用的局部变量
-         S19Read.cpp
-         edithexinput.cpp
-         DragEdit.cpp
-         BootDialog.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\bootdialog.cpp(327): warning C4101: “SendData”: 未引用的局部变量
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\bootdialog.cpp(657): warning C4309: “=”: 截断常量值
-         InPlaceEdit.cpp
-         GridDropTarget.cpp
-         GridCtrl.cpp
-         GridCellBase.cpp
-         GridCell.cpp
-         TestDlg_APP.cpp
-         EepromDialog1.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromdialog1.cpp(141): warning C4101: “col12”: 未引用的局部变量
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromdialog1.cpp(467): warning C4101: “m_Success”: 未引用的局部变量
-         Cailbration_CANDlg.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\cailbration_candlg.cpp(111): warning C4101: “data”: 未引用的局部变量
-         Cailbration_CAN.cpp
-         TitleTip.cpp
-         TestListBox.cpp
-         StdioFileEx.cpp
-         正在生成代码...
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\stdiofileex.cpp(354): warning C4700: 使用了未初始化的局部变量“abc”
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\netlaye.cpp(620): warning C4700: 使用了未初始化的局部变量“nPdu”
-         正在编译...
-         SendDialog.cpp
-         ProjiectRam.cpp
-         LogFile.cpp
-         HexFileRead.cpp
-         EepromSetForProject.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromsetforproject.cpp(76): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromsetforproject.cpp(1446): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromsetforproject.cpp(1526): warning C4101: “rtx”: 未引用的局部变量
-         DomodalDlg.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\domodaldlg.cpp(104): warning C4101: “u16ccd”: 未引用的局部变量
-         DialogConfirm1.cpp
-         DatatoGrid.cpp
-         CheckDialog.cpp
-         CANSetDialog.cpp
-         Cailbration_Boot.cpp
-         ADO.cpp
-         正在生成代码...
+         所有输出均为最新。
+         所有输出均为最新。
        ResourceCompile:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0804" /IDebug\ /nologo /fo"Debug\Cailbration_CAN.res" Cailbration_CAN.rc 
        ManifestResourceCompile:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\BT_GA.exe.embed.manifest.res" Debug\BT_GA_manifest.rc 
+         所有输出均为最新。
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Debug\BT_GA.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\BT_GA.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Debug\BT_GA.pdb" /SUBSYSTEM:WINDOWS /STACK:"32000000" /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Debug\BT_GA.lib" /MACHINE:X86 Debug\Cailbration_CAN.res
          Debug\BT_GA.exe.embed.manifest.res
@@ -99,51 +46,16 @@
          Debug\NetLaye.obj
          Debug\timerout.obj
        Manifest:
-         正在删除文件“Debug\BT_GA.exe.embed.manifest”。
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\BT_GA.exe.embed.manifest" /manifest Debug\BT_GA.exe.intermediate.manifest "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\BT_GA.exe.embed.manifest.res" Debug\BT_GA_manifest.rc 
+         所有输出均为最新。
        LinkEmbedManifest:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Debug\BT_GA.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\BT_GA.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Debug\BT_GA.pdb" /SUBSYSTEM:WINDOWS /STACK:"32000000" /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Debug\BT_GA.lib" /MACHINE:X86 Debug\Cailbration_CAN.res
-         Debug\BT_GA.exe.embed.manifest.res
-         Debug\ADO.obj
-         Debug\Cailbration_Boot.obj
-         Debug\CANSetDialog.obj
-         Debug\CheckDialog.obj
-         Debug\DatatoGrid.obj
-         Debug\DialogConfirm1.obj
-         Debug\DomodalDlg.obj
-         Debug\EepromSetForProject.obj
-         Debug\HexFileRead.obj
-         Debug\LogFile.obj
-         Debug\ProjiectRam.obj
-         Debug\SendDialog.obj
-         Debug\stdafx.obj
-         Debug\StdioFileEx.obj
-         Debug\TestListBox.obj
-         Debug\TitleTip.obj
-         Debug\Cailbration_CAN.obj
-         Debug\Cailbration_CANDlg.obj
-         Debug\EepromDialog1.obj
-         Debug\TestDlg_APP.obj
-         Debug\GridCell.obj
-         Debug\GridCellBase.obj
-         Debug\GridCtrl.obj
-         Debug\GridDropTarget.obj
-         Debug\InPlaceEdit.obj
-         Debug\BootDialog.obj
-         Debug\DragEdit.obj
-         Debug\edithexinput.obj
-         Debug\S19Read.obj
-         Debug\Applay.obj
-         Debug\DealString.obj
-         Debug\NetLaye.obj
-         Debug\timerout.obj
+         所有输出均为最新。
          Cailbration_CAN.vcxproj -> F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Debug\BT_GA.exe
        FinalizeBuildStatus:
          正在删除文件“Debug\BT_GA.unsuccessfulbuild”。
          正在对“Debug\BT_GA.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Cailbration_CAN\Cailbration_CAN.vcxproj”(rebuild 个目标)的操作。
+     1>已完成生成项目“F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Cailbration_CAN\Cailbration_CAN.vcxproj”(build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:05.60
+已用时间 00:00:00.33

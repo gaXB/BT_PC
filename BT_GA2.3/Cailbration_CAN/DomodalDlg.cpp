@@ -16,6 +16,7 @@ CDomodalDlg::CDomodalDlg(CWnd* pParent /*=NULL*/)
 	, BOTID(1)
 	, m_Enable(0)
 	, m_ScurityType(0)
+	, m_ScurityLevel2(5)
 {
 	SetConfig.ECUID = 0X7a1;
 	SetConfig.PhyID = 0x721;
@@ -29,6 +30,7 @@ CDomodalDlg::CDomodalDlg(CWnd* pParent /*=NULL*/)
 	SetConfig.RCID_INTERGRITY = 0xDFFF;
 	SetConfig.RCID_ERASE = 0xFF00;
 	SetConfig.RCID_PRECONDITIONS = 0xFF02;
+	SetConfig.u8Security2 = 5;
 }
 
 CDomodalDlg::~CDomodalDlg()
@@ -255,7 +257,7 @@ void CDomodalDlg::OnBnClickedButtonOpenCom()
 	{
 		SetConfig.FramSize = 1;
 	}
-
+	SetConfig.u8Security2 = m_ScurityLevel2;
 	m_Enable=1;
 	OnOK();
 }
@@ -290,13 +292,16 @@ void CDomodalDlg::OnCbnSelchangeCombo3()
 	m_pRecordset   = ado.GetRecordset();
 	//m_pRecordset = ado.OpenRecordset(L"select *  from user2");
 	
+
+
+
 	CString strCmd=L"SELECT  * FROM CANCONFIG WHERE Project= ";
 	strCmd = strCmd + L"'"+str+L"'";
 
 	_ConnectionPtr m_pConnection;
 	m_pConnection = ado.GetConnec();
 	m_pRecordset = ado.m_pConnection->Execute(strCmd.AllocSysString(),&RecordsAffected,adCmdText);
-		
+
 
 	if (!m_pRecordset->adoEOF)
 	{
@@ -351,9 +356,40 @@ void CDomodalDlg::OnCbnSelchangeCombo3()
 		vUsername = m_pRecordset->GetCollect("RCID_PRECONDITIONS");
 		str = (CString)vUsername;
 		m_Precondition.SetWindowTextW(str);
+
+
+		vUsername = m_pRecordset->GetCollect("解锁等级2");
+		
+		if (vUsername.vt == VT_NULL)
+		{
+		}
+		else
+		{
+			str = (CString)vUsername;
+			if (str ==L"")
+			{
+				m_ScurityLevel2 = 0x5 ;
+			}
+			else if (str ==L"9")
+			{
+				m_ScurityLevel2 = 0x9 ;
+			}
+			else if (str ==L"11")
+			{
+				m_ScurityLevel2 = 0x11 ;
+			}
+			else if (str ==L"3")
+			{
+				m_ScurityLevel2 = 0x3;
+			}
+			else
+			{
+				m_ScurityLevel2 = 0x5 ;
+			}
+		}
 		//vUsername = m_pRecordset->GetCollect("Project");
 
-		m_pRecordset->MoveNext();///移到下一条记录
+		//m_pRecordset->MoveNext();///移到下一条记录
 	}
 /*		static unsigned int productnum=0;
 	_variant_t RecordsAffected;

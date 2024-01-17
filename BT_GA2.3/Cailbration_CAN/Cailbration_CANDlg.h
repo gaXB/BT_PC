@@ -248,6 +248,7 @@ public:
 	uint32 u32OldCheckSum;
 	uint32 u32NewCheckSum;
 	uint8 m_Close;
+	uint8 bPrintDrive;
 	CLogFile m_LogFile;
 	afx_msg void OnEnChangeEdit13();
 	afx_msg void OnStnClickedStaticMessage();

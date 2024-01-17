@@ -722,7 +722,9 @@ void CCailbration_CANDlg::OnToolbar1(void)
 
 	str_pathDll = sCanCofig.dllPath;
 
-
+	
+	SECURITY_REQSD_LEV2 = sCanCofig.u8Security2;
+	SECURITY_SENDK_LEV2 = sCanCofig.u8Security2+1;
 
 	switch (sCanCofig.Band)
 	{
@@ -816,8 +818,8 @@ void CCailbration_CANDlg::OnToolbar1(void)
 	{
 		ShowInfo(L"启动成功",0);	
 
-	    SessionMode = SESSION_MODE_EXTERN;    //会话模式
-        SecurityState = SECURITY_STATE_SSEED1;   //安全访问模式
+	  //  SessionMode = SESSION_MODE_EXTERN;    //会话模式
+       // SecurityState = SECURITY_STATE_SSEED1;   //安全访问模式
 	}
 	else
 	{

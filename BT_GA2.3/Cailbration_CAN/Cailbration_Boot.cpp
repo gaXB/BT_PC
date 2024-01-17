@@ -146,6 +146,10 @@ void CCailbration_CANDlg::ReceiveAPPData(A_PDU* APData)
 		//conmunication control sever 
 			// write data by info
 			case SEVER_SID_WRITEDATABYINF:
+				if (((APData->A_Data[0] <<8) + APData->A_Data[1]) == 0xF15A && m_BootLoadState == BT_STATE_LOADE)
+				{
+					Deal_TransSever();
+				}
 			//Deal_WriteDID(&APData.A_Data[0], APData.A_Length);
 			break;
 			// write data by info   end
@@ -191,9 +195,9 @@ void CCailbration_CANDlg::ReceiveAPPData(A_PDU* APData)
 				}
 				else if (( (APData->A_Data[1] <<8) + APData->A_Data[2]) == sCanCofig.RCID_INTERGRITY)
 				{
-					if (m_BootLoadState == BT_STATE_INTERGRITY)
+					if (m_BootLoadState == BT_STATE_LOADE)
 					{
-						BootLoad_DoingNext();
+						Deal_TransSever();
 					}
 				}
 				else if (( (APData->A_Data[1] <<8) + APData->A_Data[2]) == sCanCofig.RCID_DEPENDENCE)
@@ -279,6 +283,13 @@ void CCailbration_CANDlg::DiagRecNRC(uint8* aData)
 			}
 		}
 		else if (aData[1] == 0x31)
+		{
+			if (m_BootLoadState == BT_STATE_LOADE)
+			{
+				m_LoadTask = LOAD_TASK_FAILED;
+			}
+		}
+		else if (aData[1] == 0x2e && aData[2] == 0xf1 && aData[3] == 0x5a)
 		{
 			if (m_BootLoadState == BT_STATE_LOADE)
 			{
@@ -453,14 +464,14 @@ void CCailbration_CANDlg::BootLoad_ONTIMER(uint8 nTimer)
 		}
 		else if (m_LoadTask == LOAD_TASK_SUCCESS)
 		{
-			m_BootLoadState = BT_STATE_INTERGRITY;
+			/*m_BootLoadState = BT_STATE_INTERGRITY;
 			ShowMainInfo(L"传输完成，校验中。。。",2);
 			SendByte[0] = 0x31;
 			SendByte[1] = 0x01;
-			SendByte[2] = (unsigned char) (sCanCofig.RCID_INTERGRITY >>8);
-			SendByte[3] = (unsigned char) (sCanCofig.RCID_INTERGRITY & 0x00ff);
+			SendByte[2] = (unsigned char) (sCanCofig.RCID_DEPENDENCE >>8);
+			SendByte[3] = (unsigned char) (sCanCofig.RCID_DEPENDENCE & 0x00ff);
 			F_N_USDATA_REQ(SendByte, 4,ID_DEFINE_TARGET);
-			SetTimer(nTimer, 5000, NULL);
+			SetTimer(nTimer, 5000, NULL);*/
 		}
 		else if (m_LoadTask == LOAD_TASK_FAILED)
 		{
@@ -526,6 +537,8 @@ void CCailbration_CANDlg::BootLoad_DoingNext(void)
 
 
 		F_N_USDATA_REQ(SendByte, 4,ID_DEFINE_TARGET);
+		KillTimer(ID_TIMER_COM);
+		SetTimer(ID_TIMER_COM,1000,NULL);
 		break;
 	case  BT_STATE_DEPENDENCE:
 		if (bHeadFileOK == TRUE)
@@ -546,6 +559,8 @@ void CCailbration_CANDlg::BootLoad_DoingNext(void)
 			SendByte[0] = 0x11;
 			SendByte[1] = 0x01;
 			F_N_USDATA_REQ(SendByte, 2, ID_DEFINE_TARGET);
+			KillTimer(ID_TIMER_COM);
+			SetTimer(ID_TIMER_COM,1000,NULL);
 		}
 		break;
 	case BT_STATE_CHECKHASH:
@@ -626,6 +641,8 @@ void CCailbration_CANDlg::Deal_TransSever(void)
 		else
 		{
 			m_LoadTask = LOAD_TASK_SUCCESS;
+			m_BootLoadState = BT_STATE_INTERGRITY;
+			BootLoad_DoingNext();
 		}
 	}
 	else if (m_LoadTask == LOAD_TASK_ERASE)
@@ -732,12 +749,46 @@ void CCailbration_CANDlg::Deal_TransSever(void)
 		if (bFlashDrive)
 		{
 			str.Format(L"flashdrive下载结束");
+			m_LoadTask = LOAD_TASK_INTEGRITY;
 		}
 		else
 		{
+			m_LoadTask = LOAD_TASK_INTEGRITY;
 			str.Format(L"第%d区域下载结束", nRegion);
 		}
-
+	}
+	else if (m_LoadTask == LOAD_TASK_INTEGRITY)
+	{
+		SendData[0] = 0x31;
+		SendData[1] = 0x01;
+		SendData[2] = (unsigned char) (sCanCofig.RCID_INTERGRITY >>8);
+		SendData[3] = (unsigned char) (sCanCofig.RCID_INTERGRITY & 0x00ff);
+		F_N_USDATA_REQ(SendData, 4,ID_DEFINE_TARGET);
+		str.Format(L"完整性验证。。。。");
+		if (bFlashDrive)
+		{
+			bPrintDrive = 1;
+			if (bPrintDrive == 1)
+			{//要写指纹
+				m_LoadTask = LOAD_TASK_PRINT;
+			}
+			else
+			{
+				m_LoadTask = LOAD_TASK_NEXTREGION;
+			}
+		}
+		else
+		{
+			m_LoadTask = LOAD_TASK_NEXTREGION;
+		}
+	}
+	else if (m_LoadTask == LOAD_TASK_PRINT)
+	{
+		SendData[0] = 0x2e;
+		SendData[1] = (unsigned char) (0xF15A >>8);
+		SendData[2] = (unsigned char) (0xF15A & 0x00ff);
+		F_N_USDATA_REQ(SendData,12 ,ID_DEFINE_TARGET);
+		str.Format(L"写指纹。。。。");
 		m_LoadTask = LOAD_TASK_NEXTREGION;
 	}
 	else
