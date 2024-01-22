@@ -19,6 +19,8 @@ enum  LOAD_TASK_ID
 	LOAD_TASK_EXITTRANS ,
 	LOAD_TASK_SUCCESS,
 	LOAD_TASK_NEXTREGION,
+	LOAD_TASK_INTEGRITY,
+	LOAD_TASK_PRINT,
 	LOAD_TASK_FAILED,
 	LOAD_TASK_ID ,
 };
@@ -84,7 +86,7 @@ public:
 	afx_msg void OnBnClickedButtonEarse();
 	afx_msg void OnBnClickedButtonDownload();
 	void  DisplayDID(uint8 *Data, uint8 Length);
-	void  ReadDTC(uint8 *Data, uint8 Length);
+	void  ReadDTC(uint8 *Data, uint16 Length);
 	//
 	void Deal_TransSever(void);
 	afx_msg void OnBnClickedButtonIntegrity();

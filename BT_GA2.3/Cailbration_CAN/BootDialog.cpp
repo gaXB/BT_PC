@@ -472,7 +472,7 @@ void CBootDialog::DisplayDID(uint8 *Data, uint8 Length)
 CString TBL_DTCName[14] = {_T("车内传感器"), _T("车外传感器"), _T("蒸发传感器"), _T("车窗传感器"), _T("模式电机反馈"), _T("模式电机堵转"),
 							_T("冷暖电机反馈"), _T("冷暖电机堵转"),_T("露点传感器温度"),_T("露点传感器湿度"),
 							_T("鼓风机反馈"),_T("电压过高"),_T("电压过低"),_T("阳光传感器"),};
-void CBootDialog::ReadDTC(uint8 *Data, uint8 Length)
+void CBootDialog::ReadDTC(uint8 *Data, uint16 Length)
 {	
 	m_22Message = "";
 

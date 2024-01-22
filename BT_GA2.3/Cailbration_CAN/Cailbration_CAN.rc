@@ -82,20 +82,26 @@ IDI_ICON3               ICON                    "res\\icon3.ico"
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOGEX 0, 0, 235, 170
+IDD_ABOUTBOX DIALOGEX 0, 0, 347, 246
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "关于 Cailbration_CAN"
 FONT 9, "宋体", 0, 0, 0x1
 BEGIN
     ICON            IDI_ICON_FX,IDC_STATIC,11,17,20,20
-    LTEXT           "BOOT 2.4",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2022-7-28",IDC_STATIC,40,25,119,8
-    DEFPUSHBUTTON   "确定",IDOK,178,7,50,16,WS_GROUP
+    LTEXT           "BOOT 2.7",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2020-1-3 — 2024-1-17",IDC_STATIC,29,42,190,8
+    DEFPUSHBUTTON   "确定",IDOK,289,7,50,16,WS_GROUP
     LTEXT           "v2.2 增加预编译功能,增加LogFile",IDC_STATIC,26,64,176,21
     LTEXT           "v2.3.1 优化flash大小到250k",IDC_STATIC,26,100,177,16
     LTEXT           "v2.3 增加flash drive",IDC_STATIC,25,83,177,16
     LTEXT           "v2.3.2 优化刷写速度",IDC_STATIC,27,121,177,16
-    LTEXT           "v2.4 支持网络层数据4096",IDC_STATIC,27,136,177,16
+    LTEXT           "v2.6 支持连续帧4096",IDC_STATIC,21,169,177,16
+    LTEXT           "v2.4 支持网络层数据4096",IDC_STATIC,28,138,177,16
+    LTEXT           "v2.5 支持安全刷写",IDC_STATIC,26,154,177,16
+    LTEXT           "v2.6.2 关闭重新开启bug修复",IDC_STATIC,24,203,177,16
+    LTEXT           "v2.7 增加指纹功能和 dbc 27 05 09的选择",IDC_STATIC,162,79,177,16
+    LTEXT           "v2.6.3 修复连续发送， LOGFILE 可叠加",IDC_STATIC,26,222,177,16
+    LTEXT           "v2.6.1 关提示 速度快",IDC_STATIC,29,187,177,16
 END
 
 IDD_CAILBRATION_CAN_DIALOG DIALOGEX 0, 0, 658, 442
@@ -389,9 +395,9 @@ BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 228
+        RIGHTMARGIN, 339
         TOPMARGIN, 7
-        BOTTOMMARGIN, 163
+        BOTTOMMARGIN, 238
     END
 
     IDD_CAILBRATION_CAN_DIALOG, DIALOG

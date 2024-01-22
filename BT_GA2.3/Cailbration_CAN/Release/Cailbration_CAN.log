@@ -1,62 +1,17 @@
-﻿生成启动时间为 2019/12/18 13:33:19。
-     1>项目“F:\Designer\Pro\C++\BT_GA2.0\Cailbration_CAN\Cailbration_CAN.vcxproj”在节点 2 上(rebuild 个目标)。
-     1>_PrepareForClean:
-         正在删除文件“Release\BT_GA.lastbuildstate”。
-       InitializeBuildStatus:
+﻿生成启动时间为 2023/4/6 10:17:27。
+     1>项目“F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Cailbration_CAN\Cailbration_CAN.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
          正在创建“Release\BT_GA.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\BT_GA.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\BT_GA.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ADO.cpp Cailbration_Boot.cpp CANSetDialog.cpp CheckDialog.cpp DatatoGrid.cpp DialogConfirm1.cpp DomodalDlg.cpp EepromSetForProject.cpp LogFile.cpp ProjiectRam.cpp SendDialog.cpp StdioFileEx.cpp TestListBox.cpp GridCtrl_src\TitleTip.cpp Cailbration_CAN.cpp Cailbration_CANDlg.cpp EepromDialog1.cpp TestDlg_APP.cpp GridCtrl_src\GridCell.cpp GridCtrl_src\GridCellBase.cpp GridCtrl_src\GridCtrl.cpp GridCtrl_src\GridDropTarget.cpp GridCtrl_src\InPlaceEdit.cpp BootDialog.cpp DragEdit.cpp edithexinput.cpp S19Read.cpp GWMMN\Applay.cpp GWMMN\DealString.cpp GWMMN\NetLaye.cpp GWMMN\timerout.cpp
-         ADO.cpp
-         Cailbration_Boot.cpp
-         CANSetDialog.cpp
-         CheckDialog.cpp
-         DatatoGrid.cpp
-         DialogConfirm1.cpp
-         DomodalDlg.cpp
-     1>DomodalDlg.cpp(104): warning C4101: “u16ccd”: 未引用的局部变量
-         EepromSetForProject.cpp
-     1>EepromSetForProject.cpp(76): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-     1>EepromSetForProject.cpp(1446): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-     1>EepromSetForProject.cpp(1526): warning C4101: “rtx”: 未引用的局部变量
-         LogFile.cpp
-         ProjiectRam.cpp
-         SendDialog.cpp
-         StdioFileEx.cpp
-         TestListBox.cpp
-         TitleTip.cpp
-         Cailbration_CAN.cpp
+         所有输出均为最新。
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\BT_GA.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Cailbration_CANDlg.cpp GWMMN\NetLaye.cpp
          Cailbration_CANDlg.cpp
      1>Cailbration_CANDlg.cpp(111): warning C4101: “data”: 未引用的局部变量
-         EepromDialog1.cpp
-     1>EepromDialog1.cpp(141): warning C4101: “col12”: 未引用的局部变量
-     1>EepromDialog1.cpp(467): warning C4101: “m_Success”: 未引用的局部变量
-         TestDlg_APP.cpp
-         GridCell.cpp
-         GridCellBase.cpp
-         正在编译...
-         GridCtrl.cpp
-         GridDropTarget.cpp
-         InPlaceEdit.cpp
-         BootDialog.cpp
-     1>BootDialog.cpp(654): warning C4309: “=”: 截断常量值
-         DragEdit.cpp
-         edithexinput.cpp
-         S19Read.cpp
-         Applay.cpp
-     1>GWMMN\Applay.cpp(382): warning C4244: “参数”: 从“unsigned short”转换到“unsigned char”，可能丢失数据
-     1>GWMMN\Applay.cpp(402): warning C4244: “参数”: 从“unsigned short”转换到“unsigned char”，可能丢失数据
-     1>GWMMN\Applay.cpp(416): warning C4244: “参数”: 从“unsigned short”转换到“unsigned char”，可能丢失数据
-     1>GWMMN\Applay.cpp(267): warning C4101: “dtc_i”: 未引用的局部变量
-     1>GWMMN\Applay.cpp(267): warning C4101: “DTCAvailMask”: 未引用的局部变量
-         DealString.cpp
          NetLaye.cpp
-         timerout.cpp
        ResourceCompile:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0804" /IRelease\ /nologo /fo"Release\Cailbration_CAN.res" Cailbration_CAN.rc 
        Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Designer\Pro\C++\BT_GA2.0\Release\BT_GA.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\BT_GA.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\Designer\Pro\C++\BT_GA2.0\Release\BT_GA.pdb" /SUBSYSTEM:WINDOWS /STACK:"52428800" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Designer\Pro\C++\BT_GA2.0\Release\BT_GA.lib" /MACHINE:X86 Release\Cailbration_CAN.res
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Release\BT_GA.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\BT_GA.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Release\BT_GA.pdb" /SUBSYSTEM:WINDOWS /STACK:"52428800" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Release\BT_GA.lib" /MACHINE:X86 Release\Cailbration_CAN.res
          Release\ADO.obj
          Release\Cailbration_Boot.obj
          Release\CANSetDialog.obj
@@ -65,6 +20,7 @@
          Release\DialogConfirm1.obj
          Release\DomodalDlg.obj
          Release\EepromSetForProject.obj
+         Release\HexFileRead.obj
          Release\LogFile.obj
          Release\ProjiectRam.obj
          Release\SendDialog.obj
@@ -90,15 +46,16 @@
          Release\NetLaye.obj
          Release\timerout.obj
          正在生成代码
+     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\netlaye.cpp(621): warning C4700: 使用了未初始化的局部变量“nPdu”
          已完成代码的生成
-         Cailbration_CAN.vcxproj -> F:\Designer\Pro\C++\BT_GA2.0\Release\BT_GA.exe
+         Cailbration_CAN.vcxproj -> F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Release\BT_GA.exe
        Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"F:\Designer\Pro\C++\BT_GA2.0\Release\BT_GA.exe.manifest" /manifest Release\BT_GA.exe.intermediate.manifest "D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Release\BT_GA.exe.manifest" /manifest Release\BT_GA.exe.intermediate.manifest "D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
        FinalizeBuildStatus:
          正在删除文件“Release\BT_GA.unsuccessfulbuild”。
          正在对“Release\BT_GA.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“F:\Designer\Pro\C++\BT_GA2.0\Cailbration_CAN\Cailbration_CAN.vcxproj”(rebuild 个目标)的操作。
+     1>已完成生成项目“F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Cailbration_CAN\Cailbration_CAN.vcxproj”(build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:09.58
+已用时间 00:00:08.13

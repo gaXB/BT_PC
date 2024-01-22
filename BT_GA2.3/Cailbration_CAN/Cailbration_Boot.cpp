@@ -146,6 +146,10 @@ void CCailbration_CANDlg::ReceiveAPPData(A_PDU* APData)
 		//conmunication control sever 
 			// write data by info
 			case SEVER_SID_WRITEDATABYINF:
+				if (((APData->A_Data[0] <<8) + APData->A_Data[1]) == 0xF15A && m_BootLoadState == BT_STATE_LOADE)
+				{
+					Deal_TransSever();
+				}
 			//Deal_WriteDID(&APData.A_Data[0], APData.A_Length);
 			break;
 			// write data by info   end
@@ -191,9 +195,9 @@ void CCailbration_CANDlg::ReceiveAPPData(A_PDU* APData)
 				}
 				else if (( (APData->A_Data[1] <<8) + APData->A_Data[2]) == sCanCofig.RCID_INTERGRITY)
 				{
-					if (m_BootLoadState == BT_STATE_INTERGRITY)
+					if (m_BootLoadState == BT_STATE_LOADE)
 					{
-						BootLoad_DoingNext();
+						Deal_TransSever();
 					}
 				}
 				else if (( (APData->A_Data[1] <<8) + APData->A_Data[2]) == sCanCofig.RCID_DEPENDENCE)
@@ -207,6 +211,35 @@ void CCailbration_CANDlg::ReceiveAPPData(A_PDU* APData)
 				{
 					if (m_BootLoadState == BT_STATE_PRECONDITIONS)
 					{
+						BootLoad_DoingNext();
+					}
+				}
+				else if (( (APData->A_Data[1] <<8) + APData->A_Data[2]) == 0xDFFC)
+				{
+					if (m_BootLoadState == BT_STATE_HEADFILE)
+					{
+						if (APData->A_Data[3]  == 0)
+						{
+							bHeadFileOK = TRUE;
+						}
+						else
+						{
+							bHeadFileOK = FALSE;
+						}
+					}
+				}
+				else if (( (APData->A_Data[1] <<8) + APData->A_Data[2]) == 0xDFFB)
+				{
+					if (m_BootLoadState == BT_STATE_CHECKHASH)
+					{
+						if (APData->A_Data[3]  == 0)
+						{
+							bHashCheckOK = TRUE;
+						}
+						else
+						{
+							bHashCheckOK = FALSE;
+						}
 						BootLoad_DoingNext();
 					}
 				}
@@ -256,6 +289,13 @@ void CCailbration_CANDlg::DiagRecNRC(uint8* aData)
 				m_LoadTask = LOAD_TASK_FAILED;
 			}
 		}
+		else if (aData[1] == 0x2e && aData[2] == 0xf1 && aData[3] == 0x5a)
+		{
+			if (m_BootLoadState == BT_STATE_LOADE)
+			{
+				m_LoadTask = LOAD_TASK_FAILED;
+			}
+		}
 	}
 	else
 	{
@@ -273,7 +313,7 @@ void CCailbration_CANDlg::DiagRecNRC(uint8* aData)
 
 void CCailbration_CANDlg::BootLoad_ONTIMER(uint8 nTimer)
 {
-	uint8 SendByte[20];
+	uint8 SendByte[1504];
 	switch(m_BootLoadState)
 	{
 	default:
@@ -281,6 +321,11 @@ void CCailbration_CANDlg::BootLoad_ONTIMER(uint8 nTimer)
 	case BT_STATE_END:
 		m_LogFile.EndFile();
 		KillTimer(nTimer);
+		if (m_Close == 1)
+		{
+			ShowMainInfo(L"已经取消，尝试继续下载",2);
+			OnBnClickedButtonBegin();
+		}
 		break;
 	case BT_STATE_START:
 		//m_LoadProgress.SetRange(0,100);
@@ -328,11 +373,12 @@ void CCailbration_CANDlg::BootLoad_ONTIMER(uint8 nTimer)
 		SendByte[0] = 0x10;
 		SendByte[1] = 2;   
 		SendByte[2] = 2;
+		m_BootLoadState = BT_STATE_PM;
+		FBSessionMode = 0;
 		F_N_USDATA_REQ(SendByte, 2,ID_DEFINE_TARGET);
 		ShowMainInfo(L"尝试进入BT模式。。。",2);
 		//ShowMainInfo(L"尝试进入BT模式....",2);
-		m_BootLoadState = BT_STATE_PM;
-		FBSessionMode = 0;
+		
 		SetTimer(nTimer, 500, NULL);
 		break;
 	case BT_STATE_PM:
@@ -357,18 +403,57 @@ void CCailbration_CANDlg::BootLoad_ONTIMER(uint8 nTimer)
 	case BT_STATE_SCURITY:
 		if (FBScurity == 2)
 		{
+			m_BootLoadState = BT_STATE_HEADFILE;
+
+			ShowMainInfo(L"解锁成功",2);
+			headfile_len = ReadHexFile(headfile_hexdata, L"headfile.txt");
+			if (headfile_len > 600)
+			{
+				ShowMainInfo(L"headfile 文件验证",2);
+				m_BootLoadState = BT_STATE_HEADFILE;
+
+				SendByte[0] = 0x31;
+				SendByte[1] = 01;   
+				SendByte[2] = (unsigned char) (0xDFFC >>8);
+				SendByte[3] = (unsigned char) (0xDFFC & 0x00ff);
+				MemCopy(&SendByte[4], headfile_hexdata, headfile_len);
+				F_N_USDATA_REQ(SendByte, 4+headfile_len,ID_DEFINE_TARGET);
+				bHeadFileOK = FALSE;
+			}
+			else
+			{
+				//直接下载
+				ShowMainInfo(L"headfile 文件不存在直接进行下载",2);
+				m_BootLoadState = BT_STATE_LOADE;
+				m_LoadTask = LOAD_TASK_NEXTREGION;
+				nRegion = 0;
+				nFLashRegion = 0;
+				Deal_TransSever();
+				SetTimer(nTimer, 1100, NULL);
+				ShowMainInfo(L"DOWNLOAD。。。。",2);
+			}
+		}
+		else
+		{
+			ShowMainInfo(L"解锁失败， 结束下载",2);
+			m_BootLoadState = BT_STATE_END;
+		}
+		break;
+	case BT_STATE_HEADFILE:
+		if (bHeadFileOK == TRUE)
+		{
 			m_BootLoadState = BT_STATE_LOADE;
 			m_LoadTask = LOAD_TASK_NEXTREGION;
 			nRegion = 0;
 			nFLashRegion = 0;
 			Deal_TransSever();
 			SetTimer(nTimer, 1100, NULL);
-			ShowMainInfo(L"解锁成功",2);
+			ShowMainInfo(L"HEADFILE 验证成功",2);
 			ShowMainInfo(L"DOWNLOAD。。。。",2);
 		}
 		else
 		{
-			ShowMainInfo(L"解锁失败， 结束下载",2);
+			ShowMainInfo(L"HEADFILE 验证， 结束下载",2);
 			m_BootLoadState = BT_STATE_END;
 		}
 		break;
@@ -379,14 +464,14 @@ void CCailbration_CANDlg::BootLoad_ONTIMER(uint8 nTimer)
 		}
 		else if (m_LoadTask == LOAD_TASK_SUCCESS)
 		{
-			m_BootLoadState = BT_STATE_INTERGRITY;
+			/*m_BootLoadState = BT_STATE_INTERGRITY;
 			ShowMainInfo(L"传输完成，校验中。。。",2);
 			SendByte[0] = 0x31;
 			SendByte[1] = 0x01;
-			SendByte[2] = (unsigned char) (sCanCofig.RCID_INTERGRITY >>8);
-			SendByte[3] = (unsigned char) (sCanCofig.RCID_INTERGRITY & 0x00ff);
+			SendByte[2] = (unsigned char) (sCanCofig.RCID_DEPENDENCE >>8);
+			SendByte[3] = (unsigned char) (sCanCofig.RCID_DEPENDENCE & 0x00ff);
 			F_N_USDATA_REQ(SendByte, 4,ID_DEFINE_TARGET);
-			SetTimer(nTimer, 5000, NULL);
+			SetTimer(nTimer, 5000, NULL);*/
 		}
 		else if (m_LoadTask == LOAD_TASK_FAILED)
 		{
@@ -452,13 +537,46 @@ void CCailbration_CANDlg::BootLoad_DoingNext(void)
 
 
 		F_N_USDATA_REQ(SendByte, 4,ID_DEFINE_TARGET);
+		KillTimer(ID_TIMER_COM);
+		SetTimer(ID_TIMER_COM,1000,NULL);
 		break;
 	case  BT_STATE_DEPENDENCE:
-	    ShowMainInfo(L"校验-依赖性成功，开始复位。。。",2);
-		m_BootLoadState = BT_STATE_RESET;
-		SendByte[0] = 0x11;
-		SendByte[1] = 0x01;
-		F_N_USDATA_REQ(SendByte, 2, ID_DEFINE_TARGET);
+		if (bHeadFileOK == TRUE)
+		{
+			ShowMainInfo(L"校验-依赖性成功，进行hash校验。。。",2);
+			m_BootLoadState = BT_STATE_CHECKHASH;
+			SendByte[0] = 0x31;
+			SendByte[1] = 0x01;
+			SendByte[2] = (unsigned char) (0xDFFB >>8);
+			SendByte[3] = (unsigned char) (0xDFFB & 0x00ff);
+			bHashCheckOK = FALSE;
+			F_N_USDATA_REQ(SendByte, 4,ID_DEFINE_TARGET);
+		}
+		else
+		{
+			ShowMainInfo(L"校验-依赖性成功，跳过hash，开始复位。。。",2);
+			m_BootLoadState = BT_STATE_RESET;
+			SendByte[0] = 0x11;
+			SendByte[1] = 0x01;
+			F_N_USDATA_REQ(SendByte, 2, ID_DEFINE_TARGET);
+			KillTimer(ID_TIMER_COM);
+			SetTimer(ID_TIMER_COM,1000,NULL);
+		}
+		break;
+	case BT_STATE_CHECKHASH:
+		if (bHashCheckOK)
+		{
+			ShowMainInfo(L"hashcheck 成功，开始复位。。。",2);
+			m_BootLoadState = BT_STATE_RESET;
+			SendByte[0] = 0x11;
+			SendByte[1] = 0x01;
+			F_N_USDATA_REQ(SendByte, 2, ID_DEFINE_TARGET);
+		}
+		else
+		{
+			ShowMainInfo(L"hashcheck 失败，结束。。。",2);
+			m_BootLoadState = BT_STATE_END;
+		}
 		break;
 	case BT_STATE_RESET:
 		ShowMainInfo(L"复位成功，下载完成！！！！",2);
@@ -523,6 +641,8 @@ void CCailbration_CANDlg::Deal_TransSever(void)
 		else
 		{
 			m_LoadTask = LOAD_TASK_SUCCESS;
+			m_BootLoadState = BT_STATE_INTERGRITY;
+			BootLoad_DoingNext();
 		}
 	}
 	else if (m_LoadTask == LOAD_TASK_ERASE)
@@ -629,12 +749,46 @@ void CCailbration_CANDlg::Deal_TransSever(void)
 		if (bFlashDrive)
 		{
 			str.Format(L"flashdrive下载结束");
+			m_LoadTask = LOAD_TASK_INTEGRITY;
 		}
 		else
 		{
+			m_LoadTask = LOAD_TASK_INTEGRITY;
 			str.Format(L"第%d区域下载结束", nRegion);
 		}
-
+	}
+	else if (m_LoadTask == LOAD_TASK_INTEGRITY)
+	{
+		SendData[0] = 0x31;
+		SendData[1] = 0x01;
+		SendData[2] = (unsigned char) (sCanCofig.RCID_INTERGRITY >>8);
+		SendData[3] = (unsigned char) (sCanCofig.RCID_INTERGRITY & 0x00ff);
+		F_N_USDATA_REQ(SendData, 4,ID_DEFINE_TARGET);
+		str.Format(L"完整性验证。。。。");
+		if (bFlashDrive)
+		{
+			bPrintDrive = 1;
+			if (bPrintDrive == 1)
+			{//要写指纹
+				m_LoadTask = LOAD_TASK_PRINT;
+			}
+			else
+			{
+				m_LoadTask = LOAD_TASK_NEXTREGION;
+			}
+		}
+		else
+		{
+			m_LoadTask = LOAD_TASK_NEXTREGION;
+		}
+	}
+	else if (m_LoadTask == LOAD_TASK_PRINT)
+	{
+		SendData[0] = 0x2e;
+		SendData[1] = (unsigned char) (0xF15A >>8);
+		SendData[2] = (unsigned char) (0xF15A & 0x00ff);
+		F_N_USDATA_REQ(SendData,12 ,ID_DEFINE_TARGET);
+		str.Format(L"写指纹。。。。");
 		m_LoadTask = LOAD_TASK_NEXTREGION;
 	}
 	else
@@ -807,7 +961,7 @@ void CCailbration_CANDlg::Deal_TransSever(void)
 
 void CCailbration_CANDlg::SetTransSize(int size)
 {
-	i16TransSize = size & 0xfffffc;
+	i16TransSize = size-2;//size & 0xfffffc;
 }
 
 

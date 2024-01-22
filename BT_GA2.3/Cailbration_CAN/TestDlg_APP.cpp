@@ -234,7 +234,7 @@ void CCailbration_CANDlg::DiagTestPresent(void)
 {
 	m_DiagTestPresent = 1;
 }
-void CCailbration_CANDlg::ReadDTC(uint8 *Data, uint8 Length)
+void CCailbration_CANDlg::ReadDTC(uint8 *Data, uint16 Length)
 {	
 	//收到 22信号 如果 did = IODID_SYSTEMSTATE 则显示到标定程序中
 	uint16 u16DID =Data[0]*256 + Data[1];
@@ -284,7 +284,7 @@ void Deal_WriteDID(uint8 *Data, uint8 Length)
 
 }
 
-void Deal_ReadDTC(uint8 *Data, uint8 Length)
+void Deal_ReadDTC(uint8 *Data, uint16 Length)
 {
 	pWnd->ReadDTC(Data, Length);
 }

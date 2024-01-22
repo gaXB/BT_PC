@@ -26,6 +26,8 @@ static   uint8 AppState;           //应用层状态
 static   uint8 P3SeverStop;
 static   uint8 UDS_ResetState;  //复位状态， 1 需要复位， 当一帧命令发送完成后进行复位，在 F_N_USData_CON 函数中实现
 
+uint8  SECURITY_REQSD_LEV2 = 0x05;
+uint8  SECURITY_SENDK_LEV2 = 0x06;
 //发送状态定义
 //CCSTATE
 static union
@@ -63,7 +65,7 @@ extern uint8 F_N_USDATA_REQ(uint8* ReqData,uint16 Length,uint8 mId_Target)  ;
 extern void  Respone_POS_2(uint8 SID,uint8 FSID,uint8 Target_Id);
 extern void Deal_ReadDID(uint8 *Data, uint8 Length);
 extern void Deal_WriteDID(uint8 *Data, uint8 Length);
-extern void Deal_ReadDTC(uint8 *Data, uint8 Length);
+extern void Deal_ReadDTC(uint8 *Data, uint16 Length);
 extern void Deal_IOControl(void);
 extern void Deal_ReadAddr(void);
 extern void  Save_DTC(void);

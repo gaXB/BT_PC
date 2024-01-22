@@ -19,6 +19,7 @@ typedef struct
 	unsigned int RCID_ERASE;
 	unsigned int RCID_PRECONDITIONS;
 	CString dllPath;
+    unsigned char u8Security2;
 }SETCONFIG;
 
 class CDomodalDlg : public CDialog
@@ -56,6 +57,7 @@ public:
 	afx_msg void OnBnClickedButtonCloseCom();
 	afx_msg void OnCbnSelchangeCombo2();
 	int m_ScurityType;
+	unsigned char m_ScurityLevel2;
 	CComboBox m_ProjectID;
 	int ProjectID;
 	CEditHexInput m_PhysicID;

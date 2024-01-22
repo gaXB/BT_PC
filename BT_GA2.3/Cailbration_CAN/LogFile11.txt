@@ -1,0 +1,13 @@
+开始记录20240103103554
+RX:ID 78c  Data:
+07 62 fd ff ff ff ff ff time：35:54:767
+TX : ID - 71C, DATA - 2, 10, 3, 0, 0, 0, 0, 0time：35:55:268
+RX:ID 78c  Data:
+03 7f 10 7e 00 00 00 00 time：35:55:270
+TX : ID - 71C, DATA - 4, 31, 1, df, fd, 0, 0, 0time：35:55:773
+RX:ID 78c  Data:
+03 7f 31 7f 00 00 00 00 time：35:55:774
+TX : ID - 71C, DATA - 2, 10, 2, 0, 0, 0, 0, 0time：35:56:279
+RX:ID 78c  Data:
+06 50 02 00 32 01 f4 00 time：35:56:280
+结束记录

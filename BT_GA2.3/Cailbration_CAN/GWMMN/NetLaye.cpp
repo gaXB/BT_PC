@@ -349,7 +349,6 @@ void NetLay_Recive(N_PDU*   nPdu)
 ********************************************************************************/
 uint8  F_N_USDATA_REQ(uint8* ReqData,uint16 Length,uint8 mId_Target)
 {
-
   
    if(Length>NETLAY_MAXLENGTH)
    {
@@ -575,14 +574,20 @@ void  NetLay_SendFram(void)
                MemCopy(&LL_Data[1], &nUsdata_Send.Data[SData_FL.S_Length], 7) ;
                L_SendDiagFram(LL_Data);
                
-               SData_FL.S_BS--;  //150212
-               if (SData_FL.S_BS == 0)
+              
+               if (SData_FL.S_BS > 0)
                {//如果连续帧发送次数已经到达BS，需要等待流控制帧
+				   SData_FL.S_BS--;  //150212
+				   if (SData_FL.S_BS == 0){
                   SData_FL.S_State = SEND_STATE_WAITFC;
                   SData_FL.S_WaitFCTimes = 0;
                   (void)TimeOutChkMsLong(&TimerN_Bs,0);  
+				   }
                } 
-               else{} 
+               else
+			   {
+				    
+			   } 
             }
             else
             {//send last fram
@@ -602,6 +607,7 @@ void  NetLay_SendFram(void)
          {//时间未到
          	
          }
+
          //must care the bs
          break;     
    }
