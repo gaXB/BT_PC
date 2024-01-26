@@ -76,4 +76,5 @@ public:
 	CEditHexInput m_dependenceID;
 	CEditHexInput m_RCID_ERASE;
 	CEditHexInput m_Precondition;
+	afx_msg void OnEnChangeEdit2();
 };

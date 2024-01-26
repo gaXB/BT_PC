@@ -1,61 +1,12 @@
-﻿生成启动时间为 2024/1/26 8:21:04。
+﻿生成启动时间为 2024/1/26 9:04:15。
      1>项目“F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Cailbration_CAN\Cailbration_CAN.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\BT_GA.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\BT_GA.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\BT_GA.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ADO.cpp BootDialog.cpp CANSetDialog.cpp Cailbration_Boot.cpp Cailbration_CAN.cpp Cailbration_CANDlg.cpp CheckDialog.cpp DatatoGrid.cpp DialogConfirm1.cpp DomodalDlg.cpp DragEdit.cpp EepromDialog1.cpp EepromSetForProject.cpp GWMMN\Applay.cpp GWMMN\DealString.cpp GWMMN\NetLaye.cpp GWMMN\timerout.cpp GridCtrl_src\GridCell.cpp GridCtrl_src\GridCellBase.cpp GridCtrl_src\GridCtrl.cpp GridCtrl_src\GridDropTarget.cpp GridCtrl_src\InPlaceEdit.cpp GridCtrl_src\TitleTip.cpp HexFileRead.cpp LogFile.cpp ProjiectRam.cpp S19Read.cpp SendDialog.cpp StdioFileEx.cpp TestDlg_APP.cpp TestListBox.cpp edithexinput.cpp
-         edithexinput.cpp
-         TestListBox.cpp
-         TestDlg_APP.cpp
-         StdioFileEx.cpp
-         SendDialog.cpp
-         S19Read.cpp
-         ProjiectRam.cpp
-         LogFile.cpp
-         HexFileRead.cpp
-         TitleTip.cpp
-         InPlaceEdit.cpp
-         GridDropTarget.cpp
-         GridCtrl.cpp
-         GridCellBase.cpp
-         GridCell.cpp
-         timerout.cpp
-         NetLaye.cpp
-         DealString.cpp
-         Applay.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\applay.cpp(384): warning C4244: “参数”: 从“unsigned short”转换到“unsigned char”，可能丢失数据
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\applay.cpp(418): warning C4244: “参数”: 从“unsigned short”转换到“unsigned char”，可能丢失数据
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\applay.cpp(269): warning C4101: “dtc_i”: 未引用的局部变量
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\applay.cpp(269): warning C4101: “DTCAvailMask”: 未引用的局部变量
-         EepromSetForProject.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromsetforproject.cpp(76): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromsetforproject.cpp(1446): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromsetforproject.cpp(1526): warning C4101: “rtx”: 未引用的局部变量
-         正在生成代码...
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\gwmmn\netlaye.cpp(620): warning C4700: 使用了未初始化的局部变量“nPdu”
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\stdiofileex.cpp(354): warning C4700: 使用了未初始化的局部变量“abc”
-         正在编译...
-         EepromDialog1.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromdialog1.cpp(141): warning C4101: “col12”: 未引用的局部变量
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\eepromdialog1.cpp(467): warning C4101: “m_Success”: 未引用的局部变量
-         DragEdit.cpp
+         所有输出均为最新。
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\BT_GA.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DomodalDlg.cpp
          DomodalDlg.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\domodaldlg.cpp(106): warning C4101: “u16ccd”: 未引用的局部变量
-         DialogConfirm1.cpp
-         DatatoGrid.cpp
-         CheckDialog.cpp
-         Cailbration_CANDlg.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\cailbration_candlg.cpp(111): warning C4101: “data”: 未引用的局部变量
-         Cailbration_CAN.cpp
-         Cailbration_Boot.cpp
-         CANSetDialog.cpp
-         BootDialog.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\bootdialog.cpp(327): warning C4101: “SendData”: 未引用的局部变量
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\bootdialog.cpp(657): warning C4309: “=”: 截断常量值
-         ADO.cpp
-         正在生成代码...
+     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\domodaldlg.cpp(107): warning C4101: “u16ccd”: 未引用的局部变量
        ResourceCompile:
          所有输出均为最新。
        ManifestResourceCompile:
@@ -96,7 +47,6 @@
          Debug\DealString.obj
          Debug\NetLaye.obj
          Debug\timerout.obj
-         LINK : 没有找到 F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Debug\BT_GA.exe 或上一个增量链接没有生成它；正在执行完全链接
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\BT_GA.exe.embed.manifest" /manifest Debug\BT_GA.exe.intermediate.manifest "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
          所有输出均为最新。
@@ -110,4 +60,4 @@
 
 生成成功。
 
-已用时间 00:00:04.79
+已用时间 00:00:00.47

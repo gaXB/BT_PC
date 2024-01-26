@@ -15,7 +15,7 @@ CDomodalDlg::CDomodalDlg(CWnd* pParent /*=NULL*/)
 	, COMID(0)
 	, BOTID(1)
 	, m_Enable(0)
-	, m_ScurityType(0)
+	, m_ScurityType(5)
 	, m_ScurityLevel2(5)
 {
 	SetConfig.ECUID = 0X7a1;
@@ -69,6 +69,7 @@ BEGIN_MESSAGE_MAP(CDomodalDlg, CDialog)
 	ON_CBN_SELCHANGE(IDC_COMBO3, &CDomodalDlg::OnCbnSelchangeCombo3)
 	ON_BN_CLICKED(IDC_BUTTON_OPENDLL, &CDomodalDlg::OnBnClickedButtonOpendll)
 	ON_EN_CHANGE(IDC_EDIT4, &CDomodalDlg::OnEnChangeEdit4)
+	ON_EN_CHANGE(IDC_EDIT2, &CDomodalDlg::OnEnChangeEdit2)
 END_MESSAGE_MAP()
 
 
@@ -257,7 +258,8 @@ void CDomodalDlg::OnBnClickedButtonOpenCom()
 	{
 		SetConfig.FramSize = 1;
 	}
-	SetConfig.u8Security2 = m_ScurityLevel2;
+	UpdateData(FALSE);
+	SetConfig.u8Security2 = m_ScurityType;
 	m_Enable=1;
 	OnOK();
 }
@@ -358,7 +360,7 @@ void CDomodalDlg::OnCbnSelchangeCombo3()
 		m_Precondition.SetWindowTextW(str);
 
 
-		vUsername = m_pRecordset->GetCollect("解锁等级2");
+		/*vUsername = m_pRecordset->GetCollect("解锁等级2");
 		
 		if (vUsername.vt == VT_NULL)
 		{
@@ -387,6 +389,7 @@ void CDomodalDlg::OnCbnSelchangeCombo3()
 				m_ScurityLevel2 = 0x5 ;
 			}
 		}
+		*/
 		//vUsername = m_pRecordset->GetCollect("Project");
 
 		//m_pRecordset->MoveNext();///移到下一条记录
@@ -445,5 +448,16 @@ void CDomodalDlg::OnEnChangeEdit4()
     m_ScurityPath.GetWindowTextW(strFile);
 
 	SetConfig.dllPath =  strFile;
+	// TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CDomodalDlg::OnEnChangeEdit2()
+{
+	// TODO:  如果该控件是 RICHEDIT 控件，它将不
+	// 发送此通知，除非重写 CDialog::OnInitDialog()
+	// 函数并调用 CRichEditCtrl().SetEventMask()，
+	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
+
 	// TODO:  在此添加控件通知处理程序代码
 }

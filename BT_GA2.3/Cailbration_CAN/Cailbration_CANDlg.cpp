@@ -923,10 +923,11 @@ UINT CCailbration_CANDlg::ReceiveThread(void *param)
 	//	ShowTime();
 	//	TIME++;
 	//	Deal_UDSNetLay();
-		//if (pWnd->m_ComDlg.m_Enable == 0)
-		//	break;
-		len=VCI_Receive(DEVICE_TYPE , DEVICE_ID, DEVICE_NUM ,frameinfo,50,200);
-
+		if (pWnd->m_ComDlg.m_Enable == 0)  //一直接收会导致关闭CAN 的程序和接收数据程序冲突
+		{}
+		else{
+			len=VCI_Receive(DEVICE_TYPE , DEVICE_ID, DEVICE_NUM ,frameinfo,50,200);
+		}
 		if (pWnd->m_ComDlg.m_Enable == 0)
 		{
 		}
