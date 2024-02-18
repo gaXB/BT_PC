@@ -3,7 +3,7 @@
 
 //HEX 的数据说明
 #define   HEXDATA_MAXLEN       500000
-#define   HEX_MAX_REGION        10
+#define   HEX_MAX_REGION        50
 
 
 typedef struct 

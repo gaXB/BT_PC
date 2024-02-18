@@ -146,7 +146,7 @@ void CCailbration_CANDlg::ReceiveAPPData(A_PDU* APData)
 		//conmunication control sever 
 			// write data by info
 			case SEVER_SID_WRITEDATABYINF:
-				if (((APData->A_Data[0] <<8) + APData->A_Data[1]) == 0xF15A && m_BootLoadState == BT_STATE_LOADE)
+				if (((APData->A_Data[0] <<8) + APData->A_Data[1]) == u16PrintDID && m_BootLoadState == BT_STATE_LOADE)
 				{
 					Deal_TransSever();
 				}
@@ -288,12 +288,17 @@ void CCailbration_CANDlg::DiagRecNRC(uint8* aData)
 			{
 				m_LoadTask = LOAD_TASK_FAILED;
 			}
+
+				//	if (m_LoadTask == LOAD_TASK_PRINT)
+				//	{
+				//		Deal_TransSever();
+				//	}
 		}
-		else if (aData[1] == 0x2e && aData[2] == 0xf1 && aData[3] == 0x5a)
+		else if (aData[1] == 0x2e)
 		{
 			if (m_BootLoadState == BT_STATE_LOADE)
 			{
-				m_LoadTask = LOAD_TASK_FAILED;
+				Deal_TransSever();
 			}
 		}
 	}
@@ -767,7 +772,7 @@ void CCailbration_CANDlg::Deal_TransSever(void)
 		str.Format(L"完整性验证。。。。");
 		if (bFlashDrive)
 		{
-			bPrintDrive = 1;
+			//bPrintDrive = 1;
 			if (bPrintDrive == 1)
 			{//要写指纹
 				m_LoadTask = LOAD_TASK_PRINT;
@@ -785,9 +790,9 @@ void CCailbration_CANDlg::Deal_TransSever(void)
 	else if (m_LoadTask == LOAD_TASK_PRINT)
 	{
 		SendData[0] = 0x2e;
-		SendData[1] = (unsigned char) (0xF15A >>8);
-		SendData[2] = (unsigned char) (0xF15A & 0x00ff);
-		F_N_USDATA_REQ(SendData,12 ,ID_DEFINE_TARGET);
+		SendData[1] = (unsigned char) (u16PrintDID >>8);
+		SendData[2] = (unsigned char) (u16PrintDID & 0x00ff);
+		F_N_USDATA_REQ(SendData, u16PrintLength+3 ,ID_DEFINE_TARGET);
 		str.Format(L"写指纹。。。。");
 		m_LoadTask = LOAD_TASK_NEXTREGION;
 	}

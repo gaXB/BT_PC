@@ -17,6 +17,7 @@ CDomodalDlg::CDomodalDlg(CWnd* pParent /*=NULL*/)
 	, m_Enable(0)
 	, m_ScurityType(5)
 	, m_ScurityLevel2(5)
+	, m_PrintType(0)
 {
 	SetConfig.ECUID = 0X7a1;
 	SetConfig.PhyID = 0x721;
@@ -31,6 +32,7 @@ CDomodalDlg::CDomodalDlg(CWnd* pParent /*=NULL*/)
 	SetConfig.RCID_ERASE = 0xFF00;
 	SetConfig.RCID_PRECONDITIONS = 0xFF02;
 	SetConfig.u8Security2 = 5;
+    SetConfig.PrintType = 0;
 }
 
 CDomodalDlg::~CDomodalDlg()
@@ -55,6 +57,7 @@ void CDomodalDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT10, m_dependenceID);
 	DDX_Control(pDX, IDC_EDIT11, m_RCID_ERASE);
 	DDX_Control(pDX, IDC_EDIT12, m_Precondition);
+	DDX_Text(pDX, IDC_EDIT13, m_PrintType);
 }
 
 
@@ -260,6 +263,7 @@ void CDomodalDlg::OnBnClickedButtonOpenCom()
 	}
 	UpdateData(FALSE);
 	SetConfig.u8Security2 = m_ScurityType;
+	SetConfig.PrintType = m_PrintType;
 	m_Enable=1;
 	OnOK();
 }

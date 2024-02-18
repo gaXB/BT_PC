@@ -1,12 +1,11 @@
-﻿生成启动时间为 2024/1/26 9:04:15。
+﻿生成启动时间为 2024/2/16 13:04:38。
      1>项目“F:\Designer\Pro\C++\BT_GA2.3.2\BT_GA2.3\Cailbration_CAN\Cailbration_CAN.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\BT_GA.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
          所有输出均为最新。
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\BT_GA.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DomodalDlg.cpp
-         DomodalDlg.cpp
-     1>f:\designer\pro\c++\bt_ga2.3.2\bt_ga2.3\cailbration_can\domodaldlg.cpp(107): warning C4101: “u16ccd”: 未引用的局部变量
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\BT_GA.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Cailbration_Boot.cpp
+         Cailbration_Boot.cpp
        ResourceCompile:
          所有输出均为最新。
        ManifestResourceCompile:
@@ -60,4 +59,4 @@
 
 生成成功。
 
-已用时间 00:00:00.47
+已用时间 00:00:00.68

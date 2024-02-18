@@ -20,6 +20,7 @@ typedef struct
 	unsigned int RCID_PRECONDITIONS;
 	CString dllPath;
     unsigned char u8Security2;
+    unsigned char PrintType;
 }SETCONFIG;
 
 class CDomodalDlg : public CDialog
@@ -77,4 +78,6 @@ public:
 	CEditHexInput m_RCID_ERASE;
 	CEditHexInput m_Precondition;
 	afx_msg void OnEnChangeEdit2();
+	// ÷∏Œ∆¿‡–Õ
+	int m_PrintType;
 };

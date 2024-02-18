@@ -1,64 +1,63 @@
-开始记录20240117193007
-TX : ID - 735, DATA - 3, 22, fd, ff, 0, 0, 0, 0time：30: 7:186
-RX:ID 73d  Data:
-07 62 fd ff ff ff ff ff time：30: 7:188
-TX : ID - 735, DATA - 2, 10, 3, 0, 0, 0, 0, 0time：30: 7:680
-RX:ID 73d  Data:
-06 50 03 00 32 01 f4 55 time：30: 7:683
-RX:ID 73d  Data:
-TX : ID - 735, DATA - 4, 31, 1, ff, 2, 0, 0, 0time：30: 8:183
-05 71 01 ff 02 00 55 55 time：30: 8:190
-TX : ID - 735, DATA - 2, 10, 2, 0, 0, 0, 0, 0time：30: 8:690
-RX:ID 73d  Data:
-06 50 02 00 32 01 f4 55 time：30: 8:693
-TX : ID - 735, DATA - 2, 27, 9, 0, 0, 0, 0, 0time：30: 9:195
-RX:ID 73d  Data:
-06 67 09 50 e3 19 de 55 time：30: 9:198
-TX : ID - 735, DATA - 6, 27, a, e2, a2, f7, c0, 0time：30: 9:201
-RX:ID 73d  Data:
-02 67 0a 55 55 55 55 55 time：30: 9:204
+开始记录20240216133920
+TX : ID - 721, DATA - 3, 22, fd, ff, 0, 0, 0, 0time：39:20:735
+RX:ID 7a1  Data:
+07 62 fd ff ff ff ff ff time：39:20:737
+TX : ID - 721, DATA - 2, 10, 3, 0, 0, 0, 0, 0time：39:21:239
+RX:ID 7a1  Data:
+03 7f 10 7e 55 55 55 55 time：39:21:241
+RX:ID 7a1  Data:
+TX : ID - 721, DATA - 4, 31, 1, ff, 2, 0, 0, 0time：39:21:746
+03 7f 31 7f 55 55 55 55 time：39:21:753
+TX : ID - 721, DATA - 2, 10, 2, 0, 0, 0, 0, 0time：39:22:252
+RX:ID 7a1  Data:
+06 50 02 00 32 01 f4 55 time：39:22:257
+RX:ID 7a1  Data:
+TX : ID - 721, DATA - 2, 27, 5, 0, 0, 0, 0, 0time：39:22:760
+06 67 05 35 05 45 de 55 time：39:22:762
+TX : ID - 721, DATA - 6, 27, 6, 47, 5, eb, 6d, 0time：39:22:768
+RX:ID 7a1  Data:
+02 67 06 55 55 55 55 55 time：39:22:770
 下载flashDrvie的第 1 区域
 
 开始传输 传输地址： 0x1000 ， 总共有 4 个数据
 
-TX : ID - 735, DATA - 10, b, 34, 0, 44, 0, 0, 10time：30: 9:704
-RX:ID 73d  Data:
-30 00 00 55 55 55 55 55 time：30: 9:716
-TX : ID - 735, DATA - 21, 0, 0, 0, 0, 4, 0, 0time：30: 9:717
-RX:ID 73d  Data:
-03 7f 34 78 55 55 55 55 time：30: 9:718
-RX:ID 73d  Data:
-04 74 20 0f fc 55 55 55 time：30: 9:719
+TX : ID - 721, DATA - 10, b, 34, 0, 44, 0, 0, 10time：39:23:268
+RX:ID 7a1  Data:
+30 00 00 55 55 55 55 55 time：39:23:275
+TX : ID - 721, DATA - 21, 0, 0, 0, 0, 4, 0, 0time：39:23:276
+RX:ID 7a1  Data:
+03 7f 34 78 55 55 55 55 time：39:23:278
+RX:ID 7a1  Data:
+04 74 20 0f fc 55 55 55 time：39:23:278
 
 握手成功第 1 次,  传输了： 0个数 
-TX : ID - 735, DATA - 6, 36, 1, fe, 8c, 25, ff, 0time：30: 9:720
-RX:ID 73d  Data:
-02 76 01 55 55 55 55 55 time：30: 9:722
+TX : ID - 721, DATA - 6, 36, 1, fe, 8c, 25, ff, 0time：39:23:281
+RX:ID 7a1  Data:
+02 76 01 55 55 55 55 55 time：39:23:283
 flashdrive下载结束
-TX : ID - 735, DATA - 2, 37, 1, 0, 0, 0, 0, 0time：30: 9:725
-RX:ID 73d  Data:
-03 7f 37 78 55 55 55 55 time：30: 9:732
-RX:ID 73d  Data:
-06 77 01 77 91 e4 f4 55 time：30: 9:733
+TX : ID - 721, DATA - 2, 37, 1, 0, 0, 0, 0, 0time：39:23:284
+RX:ID 7a1  Data:
+03 7f 37 78 55 55 55 55 time：39:23:287
+RX:ID 7a1  Data:
+06 77 01 88 6e 1b 0b 55 time：39:23:287
 完整性验证。。。。
-TX : ID - 735, DATA - 4, 31, 1, f0, 1, 0, 0, 0time：30: 9:734
-RX:ID 73d  Data:
-05 71 01 f0 01 00 55 55 time：30: 9:736
+TX : ID - 721, DATA - 4, 31, 1, df, ff, 0, 0, 0time：39:23:289
+RX:ID 7a1  Data:
+05 71 01 df ff 00 55 55 time：39:23:291
 写指纹。。。。
-TX : ID - 735, DATA - 10, c, 2e, f1, 5a, cc, cc, cctime：30: 9:738
-RX:ID 73d  Data:
-30 00 00 55 55 55 55 55 time：30: 9:740
-TX : ID - 735, DATA - 21, cc, cc, cc, cc, cc, cc, 0time：30: 9:741
-RX:ID 73d  Data:
-03 7f 2e 78 55 55 55 55 time：30: 9:742
-RX:ID 73d  Data:
-03 6e f1 5a 55 55 55 55 time：30: 9:774
-擦除 起始地址： 0x0, 长度 192
+TX : ID - 721, DATA - 10, 13, 2e, f1, 10, cc, cc, cctime：39:23:298
+RX:ID 7a1  Data:
+30 00 00 55 55 55 55 55 time：39:23:300
+TX : ID - 721, DATA - 21, cc, cc, cc, cc, cc, cc, cctime：39:23:300
+TX : ID - 721, DATA - 22, cc, cc, cc, cc, cc, cc, 0time：39:23:301
+RX:ID 7a1  Data:
+03 7f 2e 31 55 55 55 55 time：39:23:302
+擦除 起始地址： 0x4000, 长度 48272
 
-TX : ID - 735, DATA - 10, d, 31, 1, ff, 0, 44, 0time：30: 9:780
-RX:ID 73d  Data:
-30 00 00 55 55 55 55 55 time：30: 9:782
-TX : ID - 735, DATA - 21, 0, 0, 0, 0, 0, 0, c0time：30: 9:783
-RX:ID 73d  Data:
-03 7f 31 31 55 55 55 55 time：30: 9:785
+TX : ID - 721, DATA - 10, d, 31, 1, ff, 0, 44, 0time：39:23:306
+RX:ID 7a1  Data:
+30 00 00 55 55 55 55 55 time：39:23:308
+TX : ID - 721, DATA - 21, 0, 40, 0, 0, 0, bc, 90time：39:23:309
+RX:ID 7a1  Data:
+03 7f 31 22 55 55 55 55 time：39:23:310
 结束记录

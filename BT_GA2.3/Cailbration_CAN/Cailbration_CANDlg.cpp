@@ -726,6 +726,25 @@ void CCailbration_CANDlg::OnToolbar1(void)
 	SECURITY_REQSD_LEV2 = sCanCofig.u8Security2;
 	SECURITY_SENDK_LEV2 = sCanCofig.u8Security2+1;
 
+	if (sCanCofig.PrintType == 0)
+	{
+        u16PrintDID = 0xF110;
+	    u16PrintLength = 16;
+	    bPrintDrive = 1;
+	}
+	else if (sCanCofig.PrintType == 1)
+	{
+        u16PrintDID = 0xF15a;
+	    u16PrintLength = 9;
+	    bPrintDrive = 1;
+	}
+	else
+	{
+	    u16PrintDID = 0xF15a;
+	    u16PrintLength = 9;
+	    bPrintDrive = 1;
+	}
+
 	switch (sCanCofig.Band)
 	{
 	default:
