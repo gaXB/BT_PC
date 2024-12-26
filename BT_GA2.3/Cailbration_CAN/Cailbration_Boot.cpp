@@ -394,7 +394,7 @@ void CCailbration_CANDlg::BootLoad_ONTIMER(uint8 nTimer)
 			SendByte[2] = 2;
 			m_BootLoadState = BT_STATE_SCURITY;
 			FBScurity = 0;
-			SetTimer(nTimer, 500, NULL);
+			SetTimer(nTimer, 1000, NULL);
 			F_N_USDATA_REQ(SendByte, 2,ID_DEFINE_TARGET);
 			ShowMainInfo(L"进入BT模式成功",2);
 			//ShowMainInfo(L"尝试进行解锁。。。",2);

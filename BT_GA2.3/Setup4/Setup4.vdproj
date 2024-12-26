@@ -21,8 +21,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_399250A4730D258DA1EE59CB3460504A"
+        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_4D825C57C94045C6AF648D670CF9CFA9"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_64EB4CBDE2C44463822D250ED68173EF"
+        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -39,19 +51,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_92BB0215331044A0A4D7F747B34B8AB5"
-        "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_972B434B057D4E8AA9DCC728F95D1A73"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D473BEC1883748A59CB034BFCE22610D"
+        "MsmKey" = "8:_CB3AE69C743D4DCF87D036F849A74F79"
         "OwnerKey" = "8:_00D14BFEA336456DA84F24002B44E08F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -146,6 +152,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_399250A4730D258DA1EE59CB3460504A"
+            {
+            "SourcePath" = "8:ControlCAN.dll"
+            "TargetName" = "8:ControlCAN.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_63EC005FF95544BFACC98C01CFF83F36"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4D825C57C94045C6AF648D670CF9CFA9"
             {
             "SourcePath" = "8:..\\debug\\id.mdb"
@@ -305,7 +331,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BT工具"
         "ProductCode" = "8:{7F221A75-C418-4F96-8285-211E91242B5B}"
-        "PackageCode" = "8:{1C42862B-5809-46C5-AE2A-165D449EAD1C}"
+        "PackageCode" = "8:{AC5595BA-6A73-4560-A697-7274A8C35013}"
         "UpgradeCode" = "8:{AD7EA063-4EA0-4304-9F30-640AD0E950F1}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -427,7 +453,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_89E76C822CF94F27889504FD0613B14D"
             {
-            "Name" = "8:BT_GA2.5"
+            "Name" = "8:BT_GA2.7"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -835,7 +861,7 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_92BB0215331044A0A4D7F747B34B8AB5"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_64EB4CBDE2C44463822D250ED68173EF"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"
@@ -849,7 +875,7 @@
             "Feature" = "8:"
             "IsolateTo" = "8:"
             }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_D473BEC1883748A59CB034BFCE22610D"
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_CB3AE69C743D4DCF87D036F849A74F79"
             {
             "UseDynamicProperties" = "11:TRUE"
             "IsDependency" = "11:TRUE"

@@ -2,8 +2,8 @@
 #define _HEX_CONFIG_
 
 //HEX 的数据说明
-#define   HEXDATA_MAXLEN       500000
-#define   HEX_MAX_REGION        50
+#define   HEXDATA_MAXLEN       10000000
+#define   HEX_MAX_REGION        100
 
 
 typedef struct 

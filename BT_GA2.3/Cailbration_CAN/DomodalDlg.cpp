@@ -261,7 +261,7 @@ void CDomodalDlg::OnBnClickedButtonOpenCom()
 	{
 		SetConfig.FramSize = 1;
 	}
-	UpdateData(FALSE);
+	UpdateData(TRUE);
 	SetConfig.u8Security2 = m_ScurityType;
 	SetConfig.PrintType = m_PrintType;
 	m_Enable=1;

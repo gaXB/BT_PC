@@ -89,12 +89,12 @@ FONT 9, "宋体", 0, 0, 0x1
 BEGIN
     ICON            IDI_ICON_FX,IDC_STATIC,11,17,20,20
     LTEXT           "BOOT 2.7",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (C) 2020-1-3 — 2024-1-17",IDC_STATIC,29,42,190,8
+    LTEXT           "Copyright (C) 2020-1-3 — 2024-11-17",IDC_STATIC,29,42,190,8
     DEFPUSHBUTTON   "确定",IDOK,289,7,50,16,WS_GROUP
     LTEXT           "v2.2 增加预编译功能,增加LogFile",IDC_STATIC,26,64,176,21
     LTEXT           "v2.3.1 优化flash大小到250k",IDC_STATIC,26,100,177,16
     LTEXT           "v2.3 增加flash drive",IDC_STATIC,25,83,177,16
-    LTEXT           "v2.3.2 优化刷写速度",IDC_STATIC,27,121,177,16
+    LTEXT           "v2.3.2 优化刷写速度",IDC_STATIC,32,125,177,16
     LTEXT           "v2.6 支持连续帧4096",IDC_STATIC,21,169,177,16
     LTEXT           "v2.4 支持网络层数据4096",IDC_STATIC,28,138,177,16
     LTEXT           "v2.5 支持安全刷写",IDC_STATIC,26,154,177,16

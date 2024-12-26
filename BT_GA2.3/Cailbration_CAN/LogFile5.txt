@@ -1,62 +1,6 @@
-开始记录20240216134028
-TX : ID - 721, DATA - 3, 22, fd, ff, 0, 0, 0, 0time：40:28:95
-RX:ID 7a1  Data:
-07 62 fd ff ff ff ff ff time：40:28:96
-TX : ID - 721, DATA - 2, 10, 3, 0, 0, 0, 0, 0time：40:28:596
-RX:ID 7a1  Data:
-03 7f 10 7e 55 55 55 55 time：40:28:598
-TX : ID - 721, DATA - 4, 31, 1, ff, 2, 0, 0, 0time：40:29:97
-RX:ID 7a1  Data:
-03 7f 31 7f 55 55 55 55 time：40:29:100
-RX:ID 7a1  Data:
-TX : ID - 721, DATA - 2, 10, 2, 0, 0, 0, 0, 0time：40:29:608
-06 50 02 00 32 01 f4 55 time：40:29:610
-TX : ID - 721, DATA - 2, 27, 5, 0, 0, 0, 0, 0time：40:30:100
-RX:ID 7a1  Data:
-06 67 05 20 8e 5d b1 55 time：40:30:102
-TX : ID - 721, DATA - 6, 27, 6, b9, 73, a, 78, 0time：40:30:106
-RX:ID 7a1  Data:
-02 67 06 55 55 55 55 55 time：40:30:109
-下载flashDrvie的第 1 区域
-
-开始传输 传输地址： 0x1000 ， 总共有 4 个数据
-
-TX : ID - 721, DATA - 10, b, 34, 0, 44, 0, 0, 10time：40:30:611
-RX:ID 7a1  Data:
-30 00 00 55 55 55 55 55 time：40:30:617
-TX : ID - 721, DATA - 21, 0, 0, 0, 0, 4, 0, 0time：40:30:618
-RX:ID 7a1  Data:
-03 7f 34 78 55 55 55 55 time：40:30:620
-RX:ID 7a1  Data:
-04 74 20 0f fc 55 55 55 time：40:30:620
-
-握手成功第 1 次,  传输了： 0个数 
-TX : ID - 721, DATA - 6, 36, 1, fe, 8c, 25, ff, 0time：40:30:621
-RX:ID 7a1  Data:
-02 76 01 55 55 55 55 55 time：40:30:623
-flashdrive下载结束
-TX : ID - 721, DATA - 2, 37, 1, 0, 0, 0, 0, 0time：40:30:625
-RX:ID 7a1  Data:
-03 7f 37 78 55 55 55 55 time：40:30:627
-RX:ID 7a1  Data:
-06 77 01 88 6e 1b 0b 55 time：40:30:628
-完整性验证。。。。
-TX : ID - 721, DATA - 4, 31, 1, df, ff, 0, 0, 0time：40:30:630
-RX:ID 7a1  Data:
-05 71 01 df ff 00 55 55 time：40:30:632
-写指纹。。。。
-TX : ID - 721, DATA - 10, c, 2e, f1, 5a, cc, cc, cctime：40:30:633
-RX:ID 7a1  Data:
-30 00 00 55 55 55 55 55 time：40:30:635
-TX : ID - 721, DATA - 21, cc, cc, cc, cc, cc, cc, 0time：40:30:636
-RX:ID 7a1  Data:
-03 7f 2e 13 55 55 55 55 time：40:30:638
-擦除 起始地址： 0x4000, 长度 48272
-
-TX : ID - 721, DATA - 10, d, 31, 1, ff, 0, 44, 0time：40:30:641
-RX:ID 7a1  Data:
-30 00 00 55 55 55 55 55 time：40:30:643
-TX : ID - 721, DATA - 21, 0, 40, 0, 0, 0, bc, 90time：40:30:643
-RX:ID 7a1  Data:
-03 7f 31 22 55 55 55 55 time：40:30:645
+开始记录20241123152636
+TX : ID - 721, DATA - 3, 22, fd, ff, 0, 0, 0, 0time：26:36:28
+TX : ID - 721, DATA - 2, 10, 3, 0, 0, 0, 0, 0time：26:36:517
+TX : ID - 721, DATA - 4, 31, 1, ff, 2, 0, 0, 0time：26:37:16
+TX : ID - 721, DATA - 2, 10, 2, 0, 0, 0, 0, 0time：26:37:514
 结束记录
